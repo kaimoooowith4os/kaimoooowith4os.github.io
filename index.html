@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="en" class="dark">
 <!-- Head & CSS Styling -->
 <head>
     <meta charset="UTF-8">
@@ -8,12 +8,134 @@
     <style>
         @import url('https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600&display=swap');
         
+        :root {
+            --bg-color: #f5f5f5;
+            --text-color: #333;
+            --card-bg: white;
+            --card-text: #2d2d2d;
+            --secondary-text: #666;
+            --line-color: rgba(0,0,0,0.1);
+            --line-highlight: rgba(0,0,0,0.5);
+            --nav-bg: rgba(255, 255, 255, 0.9);
+        }
+
+        .dark {
+            --bg-color: #1a1a1a;
+            --text-color: #fff;
+            --card-bg: #2d2d2d;
+            --card-text: #fff;
+            --secondary-text: #ccc;
+            --line-color: rgba(255,255,255,0.1);
+            --line-highlight: rgba(255,255,255,0.5);
+            --nav-bg: rgba(26, 26, 26, 0.9);
+        }
+        
         body {
             font-family: 'Poppins', sans-serif;
-            background-color: #f5f5f5;
+            background-color: var(--bg-color);
             margin: 0;
             padding: 0;
+            transition: background-color 0.3s ease;
         }
+
+        .nav-container {
+            position: fixed;
+            top: -100px; /* Start hidden above viewport */
+            left: 0;
+            right: 0;
+            background: var(--nav-bg);
+            backdrop-filter: blur(10px);
+            padding: 10px 20px;
+            box-shadow: 0 2px 10px rgba(0,0,0,0.1);
+            z-index: 1000;
+            transition: top 0.3s ease;
+        }
+
+        .nav-container.visible {
+            top: 0;
+        }
+
+        .top-controls {
+            display: flex;
+            align-items: center;
+            justify-content: flex-end;
+            gap: 5px;
+            max-width: 1200px;
+            margin: 0 auto;
+            padding-right: 20px;
+        }
+
+        .logo {
+            cursor: pointer;
+            margin-right: auto; /* Pushes the logo to the left */
+            display: flex;
+            align-items: center;
+            font-size: 1.5rem;
+            color: var(--text-color);
+        }
+
+        .text-buttons {
+            display: flex;
+            gap: 5px;
+            margin-right: 5px;
+        }
+
+        .divider {
+            width: 1px;
+            height: 24px;
+            background: var(--line-color);
+            margin: 0 5px;
+        }
+
+        #theme-toggle, #search-toggle, .nav-button {
+            padding: 10px;
+            border-radius: 50%;
+            border: none;
+            background: var(--card-bg);
+            color: var(--card-text);
+            cursor: pointer;
+            box-shadow: 0 2px 10px rgba(0,0,0,0.1);
+            transition: all 0.3s ease;
+            width: 40px;
+            height: 40px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+
+        .nav-button {
+            border-radius: 20px;
+            width: auto;
+            padding: 10px 15px;
+        }
+
+        #theme-toggle:hover, #search-toggle:hover, .nav-button:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 4px 15px rgba(0,0,0,0.2);
+        }
+
+        #theme-toggle .icon, #search-toggle .icon {
+            width: 24px;
+            height: 24px;
+            transition: all 0.3s ease;
+        }
+
+        html.dark #theme-toggle .sun {
+            display: block;
+        }
+
+        html.dark #theme-toggle .moon {
+            display: none;
+        }
+
+        html:not(.dark) #theme-toggle .sun {
+            display: none;
+        }
+
+        html:not(.dark) #theme-toggle .moon {
+            display: block;
+        }
+
         .container {
             display: flex;
             justify-content: center;
@@ -21,10 +143,11 @@
             min-height: 100vh;
             gap: 3rem;
             padding: 2rem;
+            margin-top: -10rem;
         }
         .portfolio-option {
             padding: 2rem;
-            background: white;
+            background: var(--card-bg);
             border-radius: 15px;
             text-align: center;
             cursor: pointer;
@@ -46,15 +169,16 @@
         h1 {
             text-align: center;
             margin: 2rem 0;
-            color: #333;
+            color: var(--text-color);
             font-weight: 600;
+            margin-top: 100px; /* Add space for fixed navbar */
         }
         h2 {
-            color: #2d2d2d;
+            color: var(--card-text);
             margin-bottom: 0.5rem;
         }
         p {
-            color: #666;
+            color: var(--secondary-text);
             margin-bottom: 1.5rem;
         }
         .features {
@@ -62,18 +186,304 @@
             padding: 0;
             margin: 0;
             font-size: 0.9rem;
-            color: #555;
+            color: var(--secondary-text);
         }
         .features li {
             margin-bottom: 0.5rem;
+        }
+
+        /* Search Bar Styles */
+        .search-container {
+            position: relative;
+            width: 40px;
+            transition: width 0.3s ease;
+        }
+        
+        .search-container.expanded {
+            width: 250px;
+            margin-right: 5px;
+        }
+
+        .search-bar {
+            width: 100%;
+            padding: 10px;
+            border: 2px solid var(--card-bg);
+            border-radius: 20px;
+            background: var(--card-bg);
+            color: var(--card-text);
+            font-size: 1rem;
+            transition: all 0.3s ease;
+            display: none;
+        }
+
+        .search-container.expanded .search-bar {
+            display: block;
+        }
+
+        .search-container.expanded #search-toggle {
+            display: none;
+        }
+
+        .search-bar:focus {
+            outline: none;
+            border-color: #4a90e2;
+            box-shadow: 0 0 10px rgba(74, 144, 226, 0.3);
+        }
+        .hidden {
+            display: none !important;
+        }
+
+        /* Background Lines */
+        .bg-lines {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            z-index: -1;
+            overflow: hidden;
+        }
+        .bg-line {
+            position: absolute;
+            top: 0;
+            height: 100%;
+            border-right: 1px solid var(--line-color);
+        }
+        .bg-line::before {
+            content: '';
+            position: absolute;
+            top: -20px;
+            right: -1px;
+            width: 1px;
+            height: 20px;
+            background: linear-gradient(to bottom, transparent, var(--line-highlight));
+            animation: lineMove 8s infinite;
+        }
+        .bg-line:nth-child(1) { left: 20%; }
+        .bg-line:nth-child(2) { left: 40%; animation-delay: 2s; }
+        .bg-line:nth-child(3) { left: 60%; animation-delay: 4s; }
+        .bg-line:nth-child(4) { left: 80%; animation-delay: 6s; }
+        @keyframes lineMove {
+            0% { top: -20px; }
+            100% { top: 100%; }
+        }
+        /* Preloader Styles */
+        .preloader {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: #1a1a1a;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            z-index: 9999;
+            transition: opacity 0.5s ease-out;
+        }
+        .preloader.fade-out {
+            opacity: 0;
+        }
+        .preloader span {
+            color: #fff;
+            font-size: 1.2rem;
+            letter-spacing: 0.2em;
+            text-transform: uppercase;
+            animation: loading 1s ease-in-out infinite;
+        }
+        @keyframes loading {
+            0% { opacity: 0.3; }
+            50% { opacity: 1; }
+            100% { opacity: 0.3; }
+        }
+        /* Business Card Styles */
+        .business-card {
+            background: var(--card-bg);
+            padding: 2rem;
+            border-radius: 15px;
+            box-shadow: 0 10px 20px rgba(0,0,0,0.1);
+            max-width: 600px;
+            margin: 2rem auto;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            gap: 2rem;
+        }
+        .business-card-content {
+            flex: 1;
+            text-align: center;
+        }
+        .business-card h3 {
+            margin: 0;
+            color: var(--card-text);
+            font-size: 1.5rem;
+        }
+        .business-card .title {
+            color: var(--secondary-text);
+            margin: 0.5rem 0;
+            font-style: italic;
+        }
+        .business-card .contact {
+            margin-top: 1rem;
+            font-size: 0.9rem;
+            color: var(--secondary-text);
+        }
+        .avatar {
+            width: 100px;
+            height: 100px;
+            border-radius: 50%;
+            object-fit: cover;
+        }
+
+        /* Back to Top Button Styles */
+        .back-to-top {
+            position: fixed;
+            bottom: 20px;
+            right: 20px;
+            background: var(--card-bg);
+            color: var(--card-text);
+            border: none;
+            border-radius: 50%;
+            width: 50px;
+            height: 50px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            box-shadow: 0 2px 10px rgba(0,0,0,0.1);
+            cursor: pointer;
+            transition: all 0.3s ease;
+            opacity: 0;
+            visibility: hidden;
+        }
+
+        .back-to-top.visible {
+            opacity: 1;
+            visibility: visible;
+        }
+
+        .back-to-top:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 4px 15px rgba(0,0,0,0.2);
+        }
+
+        /* Footer Styles */
+        .footer {
+            background: var(--nav-bg);
+            padding: 20px;
+            text-align: center;
+            position: relative;
+        }
+
+        .footer .footer-buttons {
+            display: flex;
+            justify-content: center;
+            gap: 15px;
+            margin-bottom: 10px;
+        }
+
+        .footer .footer-button {
+            display: flex;
+            align-items: center;
+            cursor: pointer;
+            color: var(--text-color);
+            text-decoration: none;
+            border: 1px solid var(--line-color); /* Added border */
+            border-radius: 5px; /* Added border radius */
+            padding: 5px 10px; /* Added padding for better spacing */
+            transition: background-color 0.3s ease; /* Added transition for hover effect */
+        }
+
+        .footer .footer-button img {
+            width: 20px;
+            height: 20px;
+            margin-right: 5px;
+        }
+
+        .footer .footer-button:hover {
+            background-color: rgba(255, 255, 255, 0.1); /* Added hover effect */
+        }
+
+        .footer .copyright {
+            color: var(--secondary-text);
+            font-size: 0.8rem;
+        }
+
+        .footer .made-with {
+            color: var(--secondary-text);
+            font-size: 0.9rem;
+            margin-bottom: 10px;
         }
     </style>
 </head>
 <!-- Actual content lol-->
 <body>
+    <div class="nav-container">
+        <div class="top-controls">
+            <div class="logo" onclick="window.location.href='index.html'">
+                <img src="assets/images/websitefavicon.png" alt="Website Logo" style="width: 40px; height: 40px; margin-right: 10px;">
+                KMZStudio
+            </div>
+            <div class="text-buttons">
+                <button class="nav-button" onclick="window.location.href='about.html'">About Me</button>
+                <button class="nav-button" onclick="window.location.href='contact.html'">Contact</button>
+                <button class="nav-button" onclick="window.location.href='slashes.html'">Slashes</button>
+            </div>
+            <div class="divider"></div>
+            <div class="search-container">
+                <button id="search-toggle">
+                    <svg class="icon" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M21 21l-6-6m2-5a7 7 0 11-14 0 7 7 0 0114 0z" />
+                    </svg>
+                </button>
+                <input type="text" class="search-bar" placeholder="Search portfolios..." id="searchBar">
+            </div>
+            <button id="theme-toggle">
+                <svg class="icon sun" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 3v1m0 16v1m9-9h-1M4 12H3m15.364 6.364l-.707-.707M6.343 6.343l-.707-.707m12.728 0l-.707.707M6.343 17.657l-.707.707M16 12a4 4 0 11-8 0 4 4 0 018 0z" />
+                </svg>
+                <svg class="icon moon" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M20.354 15.354A9 9 0 018.646 3.646 9.003 9.003 0 0012 21a9.003 9.003 0 008.354-5.646z" />
+                </svg>
+            </button>
+        </div>
+    </div>
+
+    <!-- Background Lines -->
+    <div class="bg-lines">
+        <div class="bg-line"></div>
+        <div class="bg-line"></div>
+        <div class="bg-line"></div>
+        <div class="bg-line"></div>
+    </div>
+
+    <!-- Preloader -->
+    <div class="preloader">
+        <span>Loading...</span>
+    </div>
+
     <h1>Choose Your Portfolio</h1>
+
+    <!-- Business Card -->
+    <div class="business-card" style="margin: 4rem auto;">
+        <img src="assets/images/soloist.jpg" alt="Profile Picture" class="avatar" style="width: 150px; height: 150px;">
+        <div class="business-card-content">
+            <h3>Kaimo Zhao</h3>
+            <div class="title">Full-Stack Developer & Music Educator</div>
+            <div class="contact">
+                📧 kaimozhaomusic@gmail.com<br>
+                🔗 github.com/kaimoooowith4os<br>
+                🌐 kmzstudio.com
+            </div>
+        </div>
+        <div class="text-buttons" style="margin-top: 1rem;">
+            <button class="nav-button" onclick="window.location.href='about.html'">About Me</button>
+            <button class="nav-button" onclick="window.location.href='contact.html'">Contact</button>
+            <button class="nav-button" onclick="window.location.href='slashes.html'">Slashes</button>
+        </div>
+    </div>
+
     <div class="container">
-        <div class="portfolio-option" onclick="window.location.href='musicportfolio.html'">
+        <div class="portfolio-option" onclick="window.location.href='musicportfolio.html'" data-search="music marching arts concerts festivals trumpet teaching conducting composing bands">
             <img src="https://images.unsplash.com/photo-1507238691740-187a5b1d37b8?auto=format&fit=crop&w=300" alt="Music Portfolio Preview">
             <h2>Musical Portfolio</h2>
             <p>Marching Arts, Concerts, and Festivals</p>
@@ -83,7 +493,7 @@
                 <li>Conducting & Composing</li>
             </ul>
         </div>
-        <div class="portfolio-option" onclick="window.location.href='programmingportfolio.html'">
+        <div class="portfolio-option" onclick="window.location.href='programmingportfolio.html'" data-search="programming javascript typescript html ruby rails full-stack development web design projects">
             <img src="https://images.unsplash.com/photo-1542744094-24638eff58bb?auto=format&fit=crop&w=300" alt="Programming Portfolio Preview">
             <h2>Programming Portfolio</h2>
             <p>JavaScript, TypeScript, HTML, Ruby on Rails</p>
@@ -94,5 +504,114 @@
             </ul>
         </div>
     </div>
+
+    <!-- Back to Top Button -->
+    <button class="back-to-top" id="backToTop">
+        ↑
+    </button>
+
+    <!-- Footer -->
+    <footer class="footer">
+        <div class="made-with">Website made with</div>
+        <div class="footer-buttons">
+            <a class="footer-button" href="https://www.javascript.com/" target="_blank">
+                <img src="https://upload.wikimedia.org/wikipedia/commons/6/6a/JavaScript-logo.png" alt="JavaScript Logo"> JavaScript
+            </a>
+            <a class="footer-button" href="https://developer.mozilla.org/en-US/docs/Web/CSS" target="_blank">
+                <img src="img/css.png" alt="CSS Logo"> CSS
+            </a>
+            <a class="footer-button" href="https://developer.mozilla.org/en-US/docs/Web/HTML" target="_blank">
+                <img src="https://developer.mozilla.org/favicon.ico" alt="HTML Logo"> HTML
+            </a>
+            <a class="footer-button" href="https://tailwindcss.com/" target="_blank">
+                <img src="img/Tailwind_CSS_Logo.png" alt="Tailwind Logo"> Tailwind
+            </a>
+            <a class="footer-button" href="https://rubyonrails.org/" target="_blank">
+                <img src="https://www.php.net/images/logos/php-logo.svg" alt="PHP Logo"> PHP
+            </a>
+        </div>
+        <div class="copyright">
+            © 2025 Kaimo Zhao. All rights reserved.
+        </div>
+    </footer>
+
+    <script>
+        // Preloader Script
+        window.addEventListener('load', function() {
+            const preloader = document.querySelector('.preloader');
+            preloader.classList.add('fade-out');
+            setTimeout(() => {
+                preloader.style.display = 'none';
+            }, 500);
+        });
+
+        // Theme Toggle Script
+        const themeToggle = document.getElementById('theme-toggle');
+        const html = document.documentElement;
+
+        themeToggle.addEventListener('click', () => {
+            if (html.classList.contains('dark')) {
+                html.classList.remove('dark');
+                localStorage.setItem('theme', 'light');
+            } else {
+                html.classList.add('dark');
+                localStorage.setItem('theme', 'dark');
+            }
+        });
+
+        // Check for saved theme preference
+        const savedTheme = localStorage.getItem('theme');
+        if (savedTheme) {
+            html.classList.remove('dark', 'light');
+            html.classList.add(savedTheme);
+        }
+
+        // Search functionality
+        const searchBar = document.getElementById('searchBar');
+        const searchToggle = document.getElementById('search-toggle');
+        const searchContainer = document.querySelector('.search-container');
+        const portfolioOptions = document.querySelectorAll('.portfolio-option');
+        const navContainer = document.querySelector('.nav-container');
+        const backToTopButton = document.getElementById('backToTop');
+        let lastScrollY = window.scrollY;
+
+        searchToggle.addEventListener('click', () => {
+            searchContainer.classList.add('expanded');
+            searchBar.focus();
+        });
+
+        searchBar.addEventListener('blur', () => {
+            if (searchBar.value === '') {
+                searchContainer.classList.remove('expanded');
+            }
+        });
+
+        searchBar.addEventListener('input', (e) => {
+            const searchTerm = e.target.value.toLowerCase();
+            
+            portfolioOptions.forEach(option => {
+                const searchData = option.getAttribute('data-search').toLowerCase();
+                const isVisible = searchData.includes(searchTerm);
+                option.classList.toggle('hidden', !isVisible);
+            });
+        });
+
+        // Scroll-based navbar visibility and back to top button
+        window.addEventListener('scroll', () => {
+            if (window.scrollY > 100) { // Show navbar after scrolling 100px
+                navContainer.classList.add('visible');
+                backToTopButton.classList.add('visible');
+            } else {
+                navContainer.classList.remove('visible');
+                backToTopButton.classList.remove('visible');
+            }
+            lastScrollY = window.scrollY;
+        });
+
+        // Back to Top functionality
+        backToTopButton.addEventListener('click', () => {
+            window.scrollTo({ top: 0, behavior: 'smooth' });
+        });
+    </script>
 </body>
 </html>
