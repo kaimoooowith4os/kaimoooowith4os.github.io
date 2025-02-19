@@ -4,7 +4,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Portfolio Selection</title>
+    <title>Contact</title>
     <style>
         @import url('https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600&display=swap');
         
@@ -88,7 +88,7 @@
         }
 
         #theme-toggle, #search-toggle, .nav-button {
-            padding: 10px;
+            padding: 5px; /* Reduced padding for smaller buttons */
             border-radius: 50%;
             border: none;
             background: var(--card-bg);
@@ -96,8 +96,8 @@
             cursor: pointer;
             box-shadow: 0 2px 10px rgba(0,0,0,0.1);
             transition: all 0.3s ease;
-            width: 40px;
-            height: 40px;
+            width: 30px; /* Reduced width for smaller buttons */
+            height: 30px; /* Reduced height for smaller buttons */
             display: flex;
             align-items: center;
             justify-content: center;
@@ -106,7 +106,7 @@
         .nav-button {
             border-radius: 20px;
             width: auto;
-            padding: 10px 15px;
+            padding: 5px 10px; /* Reduced padding for smaller buttons */
         }
 
         #theme-toggle:hover, #search-toggle:hover, .nav-button:hover {
@@ -115,8 +115,8 @@
         }
 
         #theme-toggle .icon, #search-toggle .icon {
-            width: 24px;
-            height: 24px;
+            width: 20px; /* Reduced icon size */
+            height: 20px; /* Reduced icon size */
             transition: all 0.3s ease;
         }
 
@@ -145,27 +145,16 @@
             padding: 2rem;
             margin-top: -10rem;
         }
-        .portfolio-option {
-            padding: 2rem;
-            background: var(--card-bg);
-            border-radius: 15px;
-            text-align: center;
-            cursor: pointer;
-            transition: all 0.3s ease;
-            box-shadow: 0 10px 20px rgba(0,0,0,0.1);
-            width: 300px;
+
+        .about-me-container {
+            max-width: 800px; /* Limit the width */
+            margin: 0 auto; /* Center the container */
+            padding: 2rem; /* Add padding */
+            background: var(--card-bg); /* Background for separation */
+            border-radius: 15px; /* Rounded corners */
+            box-shadow: 0 10px 20px rgba(0,0,0,0.1); /* Shadow for depth */
         }
-        .portfolio-option:hover {
-            transform: translateY(-10px);
-            box-shadow: 0 15px 30px rgba(0,0,0,0.15);
-        }
-        .portfolio-option img {
-            width: 100%;
-            height: 200px;
-            object-fit: cover;
-            border-radius: 10px;
-            margin-bottom: 1.5rem;
-        }
+
         h1 {
             text-align: center;
             margin: 2rem 0;
@@ -173,23 +162,47 @@
             font-weight: 600;
             margin-top: 100px; /* Add space for fixed navbar */
         }
-        h2 {
-            color: var(--card-text);
-            margin-bottom: 0.5rem;
-        }
-        p {
-            color: var(--secondary-text);
-            margin-bottom: 1.5rem;
-        }
-        .features {
+
+        .contact-methods {
             list-style: none;
             padding: 0;
             margin: 0;
-            font-size: 0.9rem;
             color: var(--secondary-text);
+            text-align: center;
+            display: flex; /* Changed to flex for better alignment */
+            flex-wrap: wrap; /* Allow wrapping */
+            justify-content: center; /* Center the buttons */
+            gap: 10px; /* Space between buttons */
+            margin-bottom: 2rem; /* Space between contact buttons and footer */
         }
-        .features li {
-            margin-bottom: 0.5rem;
+
+        .contact-button {
+            display: inline-block;
+            padding: 10px 15px; /* Standardized padding */
+            border: none;
+            border-radius: 5px;
+            background: var(--card-bg);
+            color: var(--card-text);
+            text-decoration: none;
+            font-size: 0.9rem; /* Reduced font size */
+            box-shadow: 0 2px 10px rgba(0,0,0,0.1);
+            transition: background-color 0.3s ease, transform 0.3s ease;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            max-width: 150px; /* Set a max width for buttons */
+            margin-top: 10px; /* Added space between text and buttons */
+        }
+
+        .contact-button img {
+            width: 16px; /* Reduced logo size */
+            height: 16px; /* Reduced logo size */
+            margin-right: 5px; /* Space between logo and text */
+        }
+
+        .contact-button:hover {
+            background-color: rgba(255, 255, 255, 0.1);
+            transform: translateY(-2px);
         }
 
         /* Search Bar Styles */
@@ -296,6 +309,7 @@
             50% { opacity: 1; }
             100% { opacity: 0.3; }
         }
+
         /* Business Card Styles */
         .business-card {
             background: var(--card-bg);
@@ -459,6 +473,25 @@
         </div>
     </div>
 
+    <!-- Business Card -->
+    <div class="business-card" style="margin: 4rem auto;">
+        <img src="assets/images/soloist.jpg" alt="Profile Picture" class="avatar" style="width: 150px; height: 150px;">
+        <div class="business-card-content">
+            <h3>Kaimo Zhao</h3>
+            <div class="title">Full-Stack Developer & Music Educator</div>
+            <div class="contact">
+                📧 kaimozhaomusic@gmail.com<br>
+                🔗 github.com/kaimoooowith4os<br>
+                🌐 kmzstudio.com
+            </div>
+        </div>
+        <div class="text-buttons" style="margin-top: 1rem; display: flex; justify-content: center;">
+            <button class="nav-button" onclick="window.location.href='about.html'">About Me</button>
+            <button class="nav-button" onclick="window.location.href='contact.html'">Contact</button>
+            <button class="nav-button" onclick="window.location.href='slashes.html'">Slashes</button>
+        </div>
+    </div>
+
     <!-- Background Lines -->
     <div class="bg-lines">
         <div class="bg-line"></div>
@@ -472,49 +505,31 @@
         <span>Loading...</span>
     </div>
 
-    <h1>Choose Your Portfolio</h1>
-
-    <!-- Business Card -->
-    <div class="business-card" style="margin: 4rem auto;">
-        <img src="assets/images/soloist.jpg" alt="Profile Picture" class="avatar" style="width: 150px; height: 150px;">
-        <div class="business-card-content">
-            <h3>Kaimo Zhao</h3>
-            <div class="title">Full-Stack Developer & Music Educator</div>
-            <div class="contact">
-                📧 kaimozhaomusic@gmail.com<br>
-                🔗 github.com/kaimoooowith4os<br>
-                🌐 kmzstudio.com
-            </div>
-        </div>
-        <div class="text-buttons" style="margin-top: 1rem;">
-            <button class="nav-button" onclick="window.location.href='about.html'">About Me</button>
-            <button class="nav-button" onclick="window.location.href='contact.html'">Contact</button>
-            <button class="nav-button" onclick="window.location.href='slashes.html'">Slashes</button>
-        </div>
+    <h1>Contact Information</h1>
+    <div class="about-me-container">
+        <p>Welcome to my contact page! If you want to reach out for help, or just want to say hi, feel free to send me a message on social media/email.</p>
     </div>
 
-    <div class="container" style="margin-top: 0.25rem;"">
-        <div class="portfolio-option" onclick="window.location.href='musicportfolio.html'" data-search="music marching arts concerts festivals trumpet teaching conducting composing bands">
-            <img src="assets/images/fulltrumpet.jpg" alt="Music Portfolio Preview">
-            <h2>Musical Portfolio</h2>
-            <p>Marching Arts, Concerts, and Festivals</p>
-            <ul class="features">
-                <li>Marching Bands</li>
-                <li>Trumpet Consultation & Teaching</li>
-                <li>Conducting & Composing</li>
-            </ul>
-        </div>
-        <div class="portfolio-option" onclick="window.location.href='programmingportfolio.html'" data-search="programming javascript typescript html ruby rails full-stack development web design projects">
-            <img src="img/code.png" alt="Programming Portfolio Preview">
-            <h2>Programming Portfolio</h2>
-            <p>JavaScript, TypeScript, HTML, Ruby on Rails</p>
-            <ul class="features">
-                <li>Full-Stack Development</li>
-                <li>Web Design Consultation</li>
-                <li>Current Web Design Projects</li>
-            </ul>
-        </div>
+    <div class="contact-methods">
+        <a class="contact-button" href="mailto:kaimozhaomusic@gmail.com">
+            <img src="https://upload.wikimedia.org/wikipedia/commons/4/4c/Mail_icon.svg" alt="Email Logo"> Email
+        </a>
+        <a class="contact-button" href="https://github.com/kaimoooowith4os" target="_blank">
+            <img src="https://upload.wikimedia.org/wikipedia/commons/9/91/Octicons-mark-github.svg" alt="GitHub Logo"> GitHub
+        </a>
+        <a class="contact-button" href="https://www.instagram.com/yourprofile" target="_blank">
+            <img src="https://upload.wikimedia.org/wikipedia/commons/a/a5/Instagram_icon.png" alt="Instagram Logo"> Instagram
+        </a>
+        <a class="contact-button" href="https://gitlab.com/yourprofile" target="_blank">
+            <img src="https://upload.wikimedia.org/wikipedia/commons/5/5c/GitLab_logo.svg" alt="GitLab Logo"> GitLab
+        </a>
+        <a class="contact-button" href="https://kmzstudio.com" target="_blank">
+            <img src="https://upload.wikimedia.org/wikipedia/commons/4/4c/Mail_icon.svg" alt="Website Logo"> Website
+        </a>
     </div>
+
+    <!-- Space between contact buttons and footer -->
+    <div style="height: 2rem;"></div>
 
     <!-- Back to Top Button -->
     <button class="back-to-top" id="backToTop">
@@ -537,7 +552,7 @@
             <a class="footer-button" href="https://tailwindcss.com/" target="_blank">
                 <img src="img/Tailwind_CSS_Logo.png" alt="Tailwind Logo"> Tailwind
             </a>
-            <a class="footer-button" href="https://www.php.net//" target="_blank">
+            <a class="footer-button" href="https://www.php.net/" target="_blank">
                 <img src="https://www.php.net/images/logos/php-logo.svg" alt="PHP Logo"> PHP
             </a>
         </div>
@@ -615,7 +630,7 @@
             } else {
                 navContainer.classList.remove('visible');
                 backToTopButton.classList.remove('visible');
-            }
+            } 
             lastScrollY = window.scrollY;
         });
 

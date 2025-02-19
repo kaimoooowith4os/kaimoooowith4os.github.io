@@ -4,7 +4,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Portfolio Selection</title>
+    <title>About Me</title>
     <style>
         @import url('https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600&display=swap');
         
@@ -145,27 +145,16 @@
             padding: 2rem;
             margin-top: -10rem;
         }
-        .portfolio-option {
-            padding: 2rem;
-            background: var(--card-bg);
-            border-radius: 15px;
-            text-align: center;
-            cursor: pointer;
-            transition: all 0.3s ease;
-            box-shadow: 0 10px 20px rgba(0,0,0,0.1);
-            width: 300px;
+
+        .about-me-container {
+            max-width: 800px; /* Limit the width */
+            margin: 0 auto; /* Center the container */
+            padding: 2rem; /* Add padding */
+            background: var(--card-bg); /* Background for separation */
+            border-radius: 15px; /* Rounded corners */
+            box-shadow: 0 10px 20px rgba(0,0,0,0.1); /* Shadow for depth */
         }
-        .portfolio-option:hover {
-            transform: translateY(-10px);
-            box-shadow: 0 15px 30px rgba(0,0,0,0.15);
-        }
-        .portfolio-option img {
-            width: 100%;
-            height: 200px;
-            object-fit: cover;
-            border-radius: 10px;
-            margin-bottom: 1.5rem;
-        }
+
         h1 {
             text-align: center;
             margin: 2rem 0;
@@ -372,6 +361,7 @@
             padding: 20px;
             text-align: center; 
             position: relative;
+            margin-top: 20px; /* Added margin for spacing */
         }
 
         .footer .footer-buttons {
@@ -472,48 +462,24 @@
         <span>Loading...</span>
     </div>
 
-    <h1>Choose Your Portfolio</h1>
+    <h1>About Me</h1>
+    <p style="text-align: center; color: var(--secondary-text);">Last updated: 19 February 2025</p>
 
-    <!-- Business Card -->
-    <div class="business-card" style="margin: 4rem auto;">
-        <img src="assets/images/soloist.jpg" alt="Profile Picture" class="avatar" style="width: 150px; height: 150px;">
-        <div class="business-card-content">
-            <h3>Kaimo Zhao</h3>
-            <div class="title">Full-Stack Developer & Music Educator</div>
-            <div class="contact">
-                📧 kaimozhaomusic@gmail.com<br>
-                🔗 github.com/kaimoooowith4os<br>
-                🌐 kmzstudio.com
-            </div>
-        </div>
-        <div class="text-buttons" style="margin-top: 1rem;">
-            <button class="nav-button" onclick="window.location.href='about.html'">About Me</button>
-            <button class="nav-button" onclick="window.location.href='contact.html'">Contact</button>
-            <button class="nav-button" onclick="window.location.href='slashes.html'">Slashes</button>
-        </div>
-    </div>
-
-    <div class="container" style="margin-top: 0.25rem;"">
-        <div class="portfolio-option" onclick="window.location.href='musicportfolio.html'" data-search="music marching arts concerts festivals trumpet teaching conducting composing bands">
-            <img src="assets/images/fulltrumpet.jpg" alt="Music Portfolio Preview">
-            <h2>Musical Portfolio</h2>
-            <p>Marching Arts, Concerts, and Festivals</p>
-            <ul class="features">
-                <li>Marching Bands</li>
-                <li>Trumpet Consultation & Teaching</li>
-                <li>Conducting & Composing</li>
-            </ul>
-        </div>
-        <div class="portfolio-option" onclick="window.location.href='programmingportfolio.html'" data-search="programming javascript typescript html ruby rails full-stack development web design projects">
-            <img src="img/code.png" alt="Programming Portfolio Preview">
-            <h2>Programming Portfolio</h2>
-            <p>JavaScript, TypeScript, HTML, Ruby on Rails</p>
-            <ul class="features">
-                <li>Full-Stack Development</li>
-                <li>Web Design Consultation</li>
-                <li>Current Web Design Projects</li>
-            </ul>
-        </div>
+    <!-- About Me Container -->
+    <div class="about-me-container">
+        <p>Hi, I'm Kaimo, but Kai is fine. I'm your average teenager with dreams and passions. I am a full-stack developer learning from my dad, who is also a full-stack developer. I love to use HTML, CSS (especially frameworks, manual CSS is so tiring), and Ruby on Rails to execute my vision and create cool looking things.</p>
+        <br>
+        <p>I'm currently (hoping) to learn TypeScript (and JavaScript along the way), and hopefully other useful coding languages and maybe a CSS framework or two so I never need to do manual CSS ever again. I used to know Python & Lua but I've mostly forgotten about it after years without using them.</p>
+        <br>
+        <p>On Fridays, I usually go to my marching band where I play trumpet. Trumpet (and music by assosciation) is one of my rare obsessions which didn't go away in two months. Over the past 3 years, I've been honing my skills and learning as much as I can about the trumpet to teach others about it.</p>
+        <br>
+        <p>I am also really interested in Drum Corps International. I've transcribed many shows (ie. Inferno, Spartacus), and have learnt how to conduct in both concert and marching settings so I can conduct alongside the audio and sometimes videos.</p>
+        <br>
+        <p>I'm currently based in the Greater Toronto Area, and am excited to pursue my hobby of web development and hopefully do this for a living. I also teach the trumpet to spread the joy I get from playing it. I try to spread the joy to make sure everyone can experience how empowered I felt when I first picked up that brass instrument and buzzed into it.</p>
+        <br>
+        <p>I believe in the power of computer science & technology and how it can help shape and change our world, whether it be for the better or the worse.</p>
+        <br>
+        <p>I also have an interesting affinity for computer technology... I've created many things like Sofle, Corne, and Lily58 keyboards, helped pioneer the first wireless Lily58 keyboard. I also love creating PCs, including mine... but I still used a M1 MacBook Air for all of my computer science-related initiatives.</p>
     </div>
 
     <!-- Back to Top Button -->
@@ -537,7 +503,7 @@
             <a class="footer-button" href="https://tailwindcss.com/" target="_blank">
                 <img src="img/Tailwind_CSS_Logo.png" alt="Tailwind Logo"> Tailwind
             </a>
-            <a class="footer-button" href="https://www.php.net//" target="_blank">
+            <a class="footer-button" href="https://www.php.net/" target="_blank">
                 <img src="https://www.php.net/images/logos/php-logo.svg" alt="PHP Logo"> PHP
             </a>
         </div>
