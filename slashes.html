@@ -145,6 +145,39 @@
             padding: 2rem;
             margin-top: -10rem;
         }
+
+        .about-me-container {
+            max-width: 800px; /* Limit the width */
+            margin: 0 auto; /* Center the container */
+            padding: 2rem; /* Add padding */
+            background: var(--card-bg); /* Background for separation */
+            border-radius: 15px; /* Rounded corners */
+            box-shadow: 0 10px 20px rgba(0,0,0,0.1); /* Shadow for depth */
+            color: var(--text-color); /* Ensure text is visible in dark mode */
+        }
+
+        .button-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(150px, 1fr));
+            gap: 1rem;
+            margin-top: 2rem;
+        }
+
+        .grid-button {
+            padding: 1rem;
+            background: var(--card-bg);
+            border-radius: 10px;
+            text-align: center;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            box-shadow: 0 5px 15px rgba(0,0,0,0.1);
+        }
+
+        .grid-button:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 10px 20px rgba(0,0,0,0.15);
+        }
+
         .portfolio-option {
             padding: 2rem;
             background: var(--card-bg);
@@ -472,7 +505,7 @@
         <span>Loading...</span>
     </div>
 
-    <h1>Choose Your Portfolio</h1>
+    <h1>Slashes Page</h1>
 
     <!-- Business Card -->
     <div class="business-card" style="margin: 4rem auto;">
@@ -493,28 +526,25 @@
         </div>
     </div>
 
-    <div class="container">
-        <div class="portfolio-option" onclick="window.location.href='musicportfolio.html'" data-search="music marching arts concerts festivals trumpet teaching conducting composing bands">
-            <img src="assets/images/fulltrumpet.jpg" alt="Music Portfolio Preview">
-            <h2>Musical Portfolio</h2>
-            <p>Marching Arts, Concerts, and Festivals</p>
-            <ul class="features">
-                <li>Marching Bands</li>
-                <li>Trumpet Consultation & Teaching</li>
-                <li>Conducting & Composing</li>
-            </ul>
-        </div>
-        <div class="portfolio-option" onclick="window.location.href='programmingportfolio.html'" data-search="programming javascript typescript html ruby rails full-stack development web design projects">
-            <img src="img/code.png" alt="Programming Portfolio Preview">
-            <h2>Programming Portfolio</h2>
-            <p>JavaScript, TypeScript, HTML, Ruby on Rails</p>
-            <ul class="features">
-                <li>Full-Stack Development</li>
-                <li>Web Design Consultation</li>
-                <li>Current Web Design Projects</li>
-            </ul>
+    <div class="about-me-container">
+        <p>Welcome to my slashes page. This is just a page which is an index of all the pages featured on my website.</p>
+        
+        <!-- Grid of Buttons -->
+        <div class="button-grid">
+            <div class="grid-button" onclick="window.location.href='musicportfolio.html'">Music Portfolio</div>
+            <div class="grid-button" onclick="window.location.href='programmingportfolio.html'">Coding Portfolio</div>
+            <div class="grid-button" onclick="window.location.href='index.html'">Home</div>
+            <div class="grid-button" onclick="window.location.href='about.html'">About Me</div>
+            <div class="grid-button" onclick="window.location.href='contact.html'">Contact</div>
+            <div class="grid-button" onclick="window.location.href='slashes.html'">Slashes</div>
+            <div class="grid-button" onclick="window.location.href='projects.html'">Projects</div>
+            <div class="grid-button" onclick="window.location.href='colophon.html'">Colophone</div>
+            <div class="grid-button" onclick="window.location.href='support.html'">Support Me</div>
         </div>
     </div>
+
+    <!-- Space between contact buttons and footer -->
+    <div style="height: 2rem;"></div>
 
     <!-- Back to Top Button -->
     <button class="back-to-top" id="backToTop">

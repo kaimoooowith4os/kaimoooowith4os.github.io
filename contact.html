@@ -153,6 +153,7 @@
             background: var(--card-bg); /* Background for separation */
             border-radius: 15px; /* Rounded corners */
             box-shadow: 0 10px 20px rgba(0,0,0,0.1); /* Shadow for depth */
+            color: var(--text-color); /* Ensure text is visible in dark mode */
         }
 
         h1 {
@@ -163,46 +164,35 @@
             margin-top: 100px; /* Add space for fixed navbar */
         }
 
-        .contact-methods {
-            list-style: none;
-            padding: 0;
-            margin: 0;
-            color: var(--secondary-text);
-            text-align: center;
-            display: flex; /* Changed to flex for better alignment */
-            flex-wrap: wrap; /* Allow wrapping */
-            justify-content: center; /* Center the buttons */
-            gap: 10px; /* Space between buttons */
-            margin-bottom: 2rem; /* Space between contact buttons and footer */
+        .button-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(150px, 1fr));
+            gap: 1rem;
+            margin-top: 2rem;
         }
 
-        .contact-button {
-            display: inline-block;
-            padding: 10px 15px; /* Standardized padding */
-            border: none;
-            border-radius: 5px;
+        .grid-button {
+            padding: 1rem;
             background: var(--card-bg);
-            color: var(--card-text);
-            text-decoration: none;
-            font-size: 0.9rem; /* Reduced font size */
-            box-shadow: 0 2px 10px rgba(0,0,0,0.1);
-            transition: background-color 0.3s ease, transform 0.3s ease;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            max-width: 150px; /* Set a max width for buttons */
-            margin-top: 10px; /* Added space between text and buttons */
+            border-radius: 10px;
+            text-align: center;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            box-shadow: 0 5px 15px rgba(0,0,0,0.1);
+            position: relative; /* Added for image positioning */
         }
 
-        .contact-button img {
-            width: 16px; /* Reduced logo size */
-            height: 16px; /* Reduced logo size */
-            margin-right: 5px; /* Space between logo and text */
+        .grid-button img {
+            width: 24px; /* Set image size */
+            height: 24px; /* Set image size */
+            position: relative; /* Change to relative for centering */
+            margin: 0 auto; /* Center the image */
+            display: block; /* Ensure it behaves as a block element */
         }
 
-        .contact-button:hover {
-            background-color: rgba(255, 255, 255, 0.1);
-            transform: translateY(-2px);
+        .grid-button:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 10px 20px rgba(0,0,0,0.15);
         }
 
         /* Search Bar Styles */
@@ -474,6 +464,7 @@
     </div>
 
     <!-- Business Card -->
+    <h1>Contact Information</h1>
     <div class="business-card" style="margin: 4rem auto;">
         <img src="assets/images/soloist.jpg" alt="Profile Picture" class="avatar" style="width: 150px; height: 150px;">
         <div class="business-card-content">
@@ -505,27 +496,38 @@
         <span>Loading...</span>
     </div>
 
-    <h1>Contact Information</h1>
     <div class="about-me-container">
         <p>Welcome to my contact page! If you want to reach out for help, or just want to say hi, feel free to send me a message on social media/email.</p>
-    </div>
-
-    <div class="contact-methods">
-        <a class="contact-button" href="mailto:kaimozhaomusic@gmail.com">
-            <img src="https://upload.wikimedia.org/wikipedia/commons/4/4c/Mail_icon.svg" alt="Email Logo"> Email
-        </a>
-        <a class="contact-button" href="https://github.com/kaimoooowith4os" target="_blank">
-            <img src="https://upload.wikimedia.org/wikipedia/commons/9/91/Octicons-mark-github.svg" alt="GitHub Logo"> GitHub
-        </a>
-        <a class="contact-button" href="https://www.instagram.com/yourprofile" target="_blank">
-            <img src="https://upload.wikimedia.org/wikipedia/commons/a/a5/Instagram_icon.png" alt="Instagram Logo"> Instagram
-        </a>
-        <a class="contact-button" href="https://gitlab.com/yourprofile" target="_blank">
-            <img src="https://upload.wikimedia.org/wikipedia/commons/5/5c/GitLab_logo.svg" alt="GitLab Logo"> GitLab
-        </a>
-        <a class="contact-button" href="https://kmzstudio.com" target="_blank">
-            <img src="https://upload.wikimedia.org/wikipedia/commons/4/4c/Mail_icon.svg" alt="Website Logo"> Website
-        </a>
+         <!-- Grid of Buttons -->
+         <div class="button-grid">
+            <div class="grid-button" onclick="window.location.href='mailto:kaimozhaomusic@gmail.com'">
+                <img src="img/gmail.png" alt="Email Icon"> Email
+            </div>
+            <div class="grid-button" onclick="window.location.href='programmingportfolio.html'">
+                <img src="img/github.png" alt="GitHub Icon"> GitHub
+            </div>
+            <div class="grid-button" onclick="window.location.href='index.html'">
+                <img src="img/instagram.png" alt="Instagram Icon"> Instagram
+            </div>
+            <div class="grid-button" onclick="window.location.href='about.html'">
+                <img src="img/gitlab.png" alt="GitLab Icon"> GitLab
+            </div>
+            <div class="grid-button" onclick="window.location.href='https://kmzstudio.com'">
+                <img src="img/webicon.png" alt="Website Icon"> Website
+            </div>
+            <div class="grid-button" onclick="window.location.href='slashes.html'">
+                <img src="img/linkedin.png" alt="LinkedIn Icon"> LinkedIn
+            </div>
+            <div class="grid-button" onclick="window.location.href='projects.html'">
+                <img src="img/leetcode.png" alt="LeetCode Icon"> LeetCode
+            </div>
+            <div class="grid-button" onclick="window.location.href='colophon.html'">
+                <img src="img/googledev.png" alt="GoogleDev Icon"> GoogleDev
+            </div>
+            <div class="grid-button" onclick="window.location.href='support.html'">
+                <img src="img/indieweb.png" alt="IndieWebCamp Icon"> IndieWebCamp
+            </div>
+        </div>
     </div>
 
     <!-- Space between contact buttons and footer -->
