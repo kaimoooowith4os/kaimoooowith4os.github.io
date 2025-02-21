@@ -4,7 +4,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>About Me</title>
+    <title>Project 1: Music Portfolio</title>
     <style>
         @import url('https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600&display=swap');
         
@@ -179,6 +179,32 @@
         }
         .features li {
             margin-bottom: 0.5rem;
+        }
+
+        /* Navigation Buttons Styles */
+        .nav-projects {
+            display: flex;
+            justify-content: space-between;
+            margin-top: 20px;
+        }
+
+        .nav-projects button {
+            background: var(--card-bg);
+            color: var(--card-text);
+            border: none;
+            border-radius: 5px;
+            padding: 10px 15px;
+            cursor: pointer;
+            box-shadow: 0 2px 10px rgba(0,0,0,0.1);
+            transition: background-color 0.3s ease;
+        }
+
+        .nav-projects button:hover {
+            background-color: rgba(255, 255, 255, 0.1);
+        }
+
+        .nav-projects .arrow {
+            margin: 0 5px;
         }
 
         /* Search Bar Styles */
@@ -414,6 +440,52 @@
             text-decoration: none;
             font-size: 1.5rem; /* Adjust icon size */
         }
+
+        /* Read Time Button Styles */
+        .read-time-button {
+            display: flex;
+            align-items: center;
+            background: var(--card-bg);
+            color: var(--card-text);
+            border: none;
+            border-radius: 5px;
+            padding: 10px 15px;
+            cursor: default;
+            box-shadow: 0 2px 10px rgba(0,0,0,0.1);
+            margin: 20px auto; /* Center the button */
+            transition: background-color 0.3s ease;
+        }
+
+        .read-time-button:hover {
+            background-color: rgba(255, 255, 255, 0.1);
+        }
+
+        .read-time-button .icon {
+            width: 20px;
+            height: 20px;
+            margin-right: 5px;
+        }
+
+        /* Dark mode open book icon */
+        .read-time-button .dark-icon {
+            display: none;
+        }
+
+        html.dark .read-time-button .dark-icon {
+            display: block;
+        }
+
+        html:not(.dark) .read-time-button .dark-icon {
+            display: none;
+        }
+
+        html:not(.dark) .read-time-button .light-icon {
+            display: block;
+        }
+
+        html.dark .read-time-button .light-icon {
+            display: none;
+        }
     </style>
 </head>
 <!-- Actual content lol-->
@@ -461,25 +533,40 @@
     <div class="preloader">
         <span>Loading...</span>
     </div>
-    
-    <h1>About Me</h1>
-    <p style="text-align: center; color: var(--secondary-text);">Last updated: 19 February 2025</p>
+
+    <h1>Music Portfolio</h1>
+    <p style="text-align: center; color: var(--secondary-text);">Last updated: 20 February 2025</p>
 
     <!-- About Me Container -->
     <div class="about-me-container">
-        <p>Hi, I'm Kaimo, but Kai is fine. I'm your average teenager with dreams and passions. I am a full-stack developer learning from my dad, who is also a full-stack developer. I love to use HTML, CSS (especially frameworks, manual CSS is so tiring), and Ruby on Rails to execute my vision and create cool looking things.</p>
+        <!-- Read Time Button -->
+        <button class="read-time-button">
+            <img src="https://img.icons8.com/ios-filled/50/000000/open-book.png" class="icon light-icon" alt="Open Book Icon"/>
+            <img src="https://img.icons8.com/ios-filled/50/ffffff/open-book.png" class="icon dark-icon" alt="Open Book Icon Dark Mode"/>
+        Approximately 1 minute to read
+        </button>
+        <p>The music portfolio was my first ever public programming/coding project. This website was actually originally just the music portfolio. The portfolio template is from <a href="https://themeforest.net/item/gray-tailwind-nextjs-personal-vcardportfolio-template/56600279" style="color: var(--text-color);"> Gray on ThemeForest</a>. The website was then updated to include computer science topics.</p>
         <br>
-        <p>I'm currently (hoping) to learn TypeScript (and JavaScript along the way), and hopefully other useful coding languages and maybe a CSS framework or two so I never need to do manual CSS ever again. I used to know Python & Lua but I've mostly forgotten about it after years without using them.</p>
+        <p>I remember that I wanted to make a portfolio because of Nick Van de Bogaerde's <a href="https://www.nickvanmusic.com/" style="color: var(--text-color);">website</a>, and I have seen many different portfolios/personal websites that I draw inspiration from.</p>
         <br>
-        <p>On Fridays, I usually go to my marching band where I play trumpet. Trumpet (and music by assosciation) is one of my rare obsessions which didn't go away in two months. Over the past 3 years, I've been honing my skills and learning as much as I can about the trumpet to teach others about it.</p>
+        <p>This simple portfolio website has definitely grown and evolved a lot frm the original music portfolio. I chose to update the website because I saw portfolio websites from other developers. The music portfolio can still be found in the portfolio selection page.</p>
         <br>
-        <p>I am also really interested in Drum Corps International. I've transcribed many shows (ie. Inferno, Spartacus), and have learnt how to conduct in both concert and marching settings so I can conduct alongside the audio and sometimes videos.</p>
-        <br>
-        <p>I'm currently based in the Greater Toronto Area, and am excited to pursue my hobby of web development and hopefully do this for a living. I also teach the trumpet to spread the joy I get from playing it. I try to spread the joy to make sure everyone can experience how empowered I felt when I first picked up that brass instrument and buzzed into it.</p>
-        <br>
-        <p>I believe in the power of computer science & technology and how it can help shape and change our world, whether it be for the better or the worse.</p>
-        <br>
-        <p>I also have an interesting affinity for computer technology... I've created many things like Sofle, Corne, and Lily58 keyboards, helped pioneer the first wireless Lily58 keyboard. I also love creating PCs, including mine... but I still used a M1 MacBook Air for all of my computer science-related initiatives.</p>
+        <p><i>This portfolio is one of two portfolios you can choose from the portfolio selector.</i></p>
+        
+        <!-- Go Back to Projects Button -->
+        <button class="nav-button" onclick="window.location.href='projects.html'" style="margin: 20px auto;">
+            Go back to projects page
+        </button>
+
+        <!-- Navigation Buttons -->
+        <div class="nav-projects">
+            <button onclick="window.location.href='previous-project.html'">
+                <span class="arrow">←</span> Previous Project
+            </button>
+            <button onclick="window.location.href='next-project.html'">
+                Next Project <span class="arrow">→</span>
+            </button>
+        </div>
     </div>
 
     <!-- Back to Top Button -->

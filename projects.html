@@ -17,6 +17,9 @@
             --line-color: rgba(0,0,0,0.1);
             --line-highlight: rgba(0,0,0,0.5);
             --nav-bg: rgba(255, 255, 255, 0.9);
+            --filter-checked-light: #d3d3d3; /* Darker gray for light mode */
+            --filter-checked-dark: #4a4a4a; /* Lighter gray for dark mode */
+            --filter-active: #d3d3d3; /* Lighter gray for active filters in both modes */
         }
 
         .dark {
@@ -231,7 +234,7 @@
         }
 
         .filter-button.checked {
-            background-color: rgba(74, 144, 226, 0.3);
+            background-color: var(--filter-active); /* Use lighter gray for active filters */
         }
 
         .filter-icon {
@@ -575,6 +578,9 @@
                 <div class="filter-button" data-filter="typescript" onclick="toggleFilter(this)">
                     <img src="img/unchecked.png" class="filter-icon" id="filter-typescript-icon"> TypeScript
                 </div>
+                <div class="filter-button" data-filter="marching arts" onclick="toggleFilter(this)">
+                    <img src="img/unchecked.png" class="filter-icon" id="filter-typescript-icon"> Marching Arts
+                </div>
             </div>
         <!-- Viewing Projects Text -->
         <div id="projects-viewing" style="text-align: center; margin-bottom: 2rem; color: var(--text-color);">
@@ -583,7 +589,7 @@
     </div>
 
     <div class="container" style="margin-top: 0.075rem;">
-        <div class="portfolio-option" onclick="window.location.href='musicportfolio.html'" data-search="music marching arts concerts festivals trumpet teaching conducting composing bands">
+        <div class="portfolio-option" onclick="window.location.href='project1.html'" data-search="music marching arts concerts festivals trumpet teaching conducting composing bands">
             <h2>Musical Portfolio</h2>
             <p><i>Primary Portfolio for Music</i></p>
             <ul class="features">
@@ -592,9 +598,9 @@
                 <li>Conducting & Composing</li>
             </ul>
             <div class="tag">Music</div>
-            <div class="tag">Portfolio</div>
+            <div class="tag">Marching Arts</div>
         </div>
-        <div class="portfolio-option" onclick="window.location.href='programmingportfolio.html'" data-search="programming javascript typescript html ruby rails full-stack development web design projects">
+        <div class="portfolio-option" onclick="window.location.href='project2.html'" data-search="programming javascript typescript html ruby rails full-stack development web design projects">
             <h2>Programming Portfolio</h2>
             <p><i>Primary Portfolio for Programming</i></p>
             <ul class="features">
@@ -602,10 +608,10 @@
                 <li>Web Design Consultation</li>
                 <li>Current Web Design Projects</li>
             </ul>
-            <div class="tag">Programming</div>
-            <div class="tag">Web Development</div>
+            <div class="tag">HTML</div>
+            <div class="tag">JavaScript</div>
         </div>
-        <div class="portfolio-option" onclick="window.location.href='musicportfolio.html'" data-search="programming javascript typescript html ruby rails full-stack development web design projects">
+        <div class="portfolio-option" onclick="window.location.href='project3.html'" data-search="programming javascript typescript html ruby rails full-stack development web design projects">
             <h2>Aladdin</h2>
             <p><i>Wishlist Creating Web Application</i></p>
             <ul class="features">
@@ -616,7 +622,7 @@
             <div class="tag">Ruby on Rails</div>
             <div class="tag">HTML</div>
         </div>
-        <div class="portfolio-option" onclick="window.location.href='musicportfolio.html'" data-search="music marching arts concerts festivals trumpet teaching conducting composing bands">
+        <div class="portfolio-option" onclick="window.location.href='project4.html'" data-search="music marching arts concerts festivals trumpet teaching conducting composing bands">
             <h2>Drill Writing</h2>
             <p><i>for the Halton Cadet Military Band</i></p>
             <ul class="features">

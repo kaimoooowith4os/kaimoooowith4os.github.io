@@ -171,22 +171,20 @@
             cursor: pointer;
             transition: all 0.3s ease;
             box-shadow: 0 5px 15px rgba(0,0,0,0.1);
+            position: relative; /* Added for image positioning */
+        }
+
+        .grid-button img {
+            width: 24px; /* Set image size */
+            height: 24px; /* Set image size */
+            position: relative; /* Change to relative for centering */
+            margin: 0 auto; /* Center the image */
+            display: block; /* Ensure it behaves as a block element */
         }
 
         .grid-button:hover {
             transform: translateY(-5px);
             box-shadow: 0 10px 20px rgba(0,0,0,0.15);
-        }
-
-        .portfolio-option {
-            padding: 2rem;
-            background: var(--card-bg);
-            border-radius: 15px;
-            text-align: center;
-            cursor: pointer;
-            transition: all 0.3s ease;
-            box-shadow: 0 10px 20px rgba(0,0,0,0.1);
-            width: 300px;
         }
         .portfolio-option:hover {
             transform: translateY(-10px);
@@ -199,6 +197,7 @@
             border-radius: 10px;
             margin-bottom: 1.5rem;
         }
+
         h1 {
             text-align: center;
             margin: 2rem 0;
@@ -531,9 +530,15 @@
         
         <!-- Grid of Buttons -->
         <div class="button-grid">
-            <div class="grid-button" onclick="window.location.href='musicportfolio.html'">Kofi</div>
-            <div class="grid-button" onclick="window.location.href='musicportfolio.html'">PayPal (WIP)</div>
-            <div class="grid-button" onclick="window.location.href='musicportfolio.html'">GitHub (WIP)</div>
+            <div class="grid-button" onclick="window.location.href='musicportfolio.html'">
+                <img src="img/kofi_symbol.png" alt="Kofi Logo"> Kofi (WIP)
+            </div>
+            <div class="grid-button" onclick="window.location.href='musicportfolio.html'">
+                <img src="img/paypal.png" alt="PayPal Logo"> PayPal (WIP)
+            </div>
+            <div class="grid-button" onclick="window.location.href='musicportfolio.html'">
+                <img src="img/github.png" alt="GitHub Logo"> GitHub (WIP)
+            </div>
         </div>
     </div>
 
