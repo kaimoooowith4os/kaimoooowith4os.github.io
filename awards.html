@@ -4,7 +4,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Colophon</title>
+    <title>Awards</title>
     <link rel="icon" href="img/favicon2.png" type="image/png"> <!-- Added favicon link -->
     <style>
         @import url('https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600&display=swap');
@@ -146,16 +146,27 @@
             padding: 2rem;
             margin-top: -10rem;
         }
-
-        .about-me-container {
-            max-width: 800px; /* Limit the width */
-            margin: 0 auto; /* Center the container */
-            padding: 2rem; /* Add padding */
-            background: var(--card-bg); /* Background for separation */
-            border-radius: 15px; /* Rounded corners */
-            box-shadow: 0 10px 20px rgba(0,0,0,0.1); /* Shadow for depth */
+        .portfolio-option {
+            padding: 2rem;
+            background: var(--card-bg);
+            border-radius: 15px;
+            text-align: center;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            box-shadow: 0 10px 20px rgba(0,0,0,0.1);
+            width: 300px;
         }
-
+        .portfolio-option:hover {
+            transform: translateY(-10px);
+            box-shadow: 0 15px 30px rgba(0,0,0,0.15);
+        }
+        .portfolio-option img {
+            width: 100%;
+            height: 200px;
+            object-fit: cover;
+            border-radius: 10px;
+            margin-bottom: 1.5rem;
+        }
         h1 {
             text-align: center;
             margin: 2rem 0;
@@ -325,6 +336,44 @@
             object-fit: cover;
         }
 
+        /* Chip Styles */
+        .chip {
+            display: flex;
+            align-items: center;
+            background: var(--card-bg);
+            border-radius: 15px;
+            padding: 10px;
+            margin: 10px 0;
+            box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+            cursor: pointer;
+            transition: background 0.3s ease;
+        }
+
+        .chip:hover {
+            background: rgba(0, 0, 0, 0.05);
+        }
+
+        .chip img {
+            width: 30px;
+            height: 30px;
+            margin-right: 10px;
+        }
+
+        .chip-title {
+            font-weight: bold;
+            color: var(--text-color);
+        }
+
+        .chip-subtitle {
+            color: var(--secondary-text);
+            font-size: 0.9rem;
+        }
+
+        .chip-description {
+            color: var(--secondary-text);
+            font-size: 0.8rem;
+        }
+
         /* Back to Top Button Styles */
         .back-to-top {
             position: fixed;
@@ -362,7 +411,6 @@
             padding: 20px;
             text-align: center; 
             position: relative;
-            margin-top: 20px; /* Added margin for spacing */
         }
 
         .footer .footer-buttons {
@@ -463,20 +511,53 @@
         <span>Loading...</span>
     </div>
 
-    <h1>Colophon</h1>
-    <p style="text-align: center; color: var(--secondary-text);">Last updated: 21 February 2025</p>
+    <h1>Awards</h1>
 
-    <!-- About Me Container -->
-    <div class="about-me-container">
-        <p>This website was created and serves as a portfolio for the website owner and administrator, Kaimo Zhao. There are two portfolios depending on which hobby/specialty you are looking for: Music & Programming. This website was originally made to learn to code HTML & CSS on advice of my father.</p>
-        <br>
-        <p>The original website kmzstudio was created based off of the <a href="musicportfolio.html" style="color: var(--text-color);">musical portfolio</a>, but with the programming portfolio merged into the music one. Sometime in February inbetween the 18th-19th, the second iteration included an index page which had a simple selector and the original programming portfolio. On my birthday (the 19th of February), major changes included an about me, contact, and slashes. Inbetween the 19th, the colophon, projects page, and support page were developed. Many of the pages were developed by copying and pasting the index page... lol.</p>
-        <br>
-        <p>The website was hosted on <a href="https://pages.github.com/" style="color: var(--text-color);">Github Pages</a>, and powered by JavaScript, CSS, HTML, Tailwind, and PHP. Both portfolio pages are based off of templates, but the rest of the website is custom made. This website does not take user data, sell user data, or use cookies... mostly because I don't have the coding skills to do so.</p>
-        <br>
-        <p><i>This website is designed to be interactive and informative. If you encounter a button, chip, or any other element, it's likely interactive. Enjoy your experience! To respect the privacy of others, all faces except mine will be blurred or blacked out. If you have any concerns regarding the use of photos, please reach out to me at <a href="mailto:kaimozhaomusic@gmail.com" style="color: var(--text-color);">kaimozhaomusic@gmail.com</a>.</i></p>
-        <br>
-        <p><i>This page draws inspiration from the <a href="https://indieweb.org/colophon" style="color: var(--text-color);">IndieWeb page.</a></i></p>
+    <!-- Business Card -->
+    <div class="business-card" style="margin: 4rem auto;">
+        <img src="assets/images/soloist.jpg" alt="Profile Picture" class="avatar" style="width: 150px; height: 150px;">
+        <div class="business-card-content">
+            <h3>Kaimo Zhao</h3>
+            <div class="title">Full-Stack Developer & Music Educator</div>
+            <div class="contact">
+                📧 kaimozhaomusic@gmail.com<br>
+                🔗 github.com/kaimoooowith4os<br>
+                🌐 kmzstudio.com
+            </div>
+        </div>
+        <div class="text-buttons" style="margin-top: 1rem;">
+            <button class="nav-button" onclick="window.location.href='about.html'">About Me</button>
+            <button class="nav-button" onclick="window.location.href='contact.html'">Contact</button>
+            <button class="nav-button" onclick="window.location.href='slashes.html'">Slashes</button>
+        </div>
+    </div>
+
+    <!-- Chips Section -->
+    <div class="chips-container" style="max-width: 600px; margin: 2rem auto;">
+        <div class="chip" onclick="window.location.href='link1.html'">
+            <img src="img/oba.png" alt="Ontario Band Association">
+            <div>
+                <div class="chip-title">Student Leadership Award</div>
+                <div class="chip-subtitle">Golden Horseshoe Music Festival / Ontario Band Association</div>
+                <div class="chip-description"><i>Presented by Dr. Leah McGray (Wilfrid Laurier University) on behalf of the Golden Horseshow Music Festival (apart of the Ontario Band Assosciation), for extensive external practice, exemplifying leadership, and going above and beyond in the role of 1st Trumpet.</i></div>
+            </div>
+        </div>
+        <div class="chip" onclick="window.location.href='link2.html'">
+            <img src="assets/images/icon2.png" alt="Icon 2">
+            <div>
+                <div class="chip-title">Chip Title 2</div>
+                <div class="chip-subtitle">Subtitle 2</div>
+                <div class="chip-description">Quick description about Chip 2.</div>
+            </div>
+        </div>
+        <div class="chip" onclick="window.location.href='link3.html'">
+            <img src="assets/images/icon3.png" alt="Icon 3">
+            <div>
+                <div class="chip-title">Chip Title 3</div>
+                <div class="chip-subtitle">Subtitle 3</div>
+                <div class="chip-description">Quick description about Chip 3.</div>
+            </div>
+        </div>
     </div>
 
     <!-- Back to Top Button -->
@@ -500,7 +581,7 @@
             <a class="footer-button" href="https://tailwindcss.com/" target="_blank">
                 <img src="img/Tailwind_CSS_Logo.png" alt="Tailwind Logo"> Tailwind
             </a>
-            <a class="footer-button" href="https://www.php.net/" target="_blank">
+            <a class="footer-button" href="https://www.php.net//" target="_blank">
                 <img src="https://www.php.net/images/logos/php-logo.svg" alt="PHP Logo"> PHP
             </a>
         </div>
