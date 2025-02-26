@@ -145,7 +145,7 @@
             justify-content: center;
             align-items: center;
             min-height: 100vh;
-            gap: 3rem;
+            gap: 1.5rem; /* Reduced gap between portfolio options */
             padding: 2rem;
             margin-top: -10rem;
         }
@@ -169,7 +169,7 @@
             box-shadow: 0 4px 10px rgba(0,0,0,0.1);
             width: auto; /* Allow width to adjust based on content */
             flex: 1 1 calc(33.333% - 2rem); /* Allow 3 cards per row with margin */
-            margin: 1rem; /* Add margin for spacing */
+            margin: 0.5rem; /* Reduced margin for spacing */
         }
         .portfolio-option:hover {
             transform: translateY(-5px);
@@ -207,7 +207,7 @@
             justify-content: center;
             margin: 2rem 0;
             gap: 5px; /* Reduced gap for smaller buttons */
-            flex-direction: row; /* Changed to horizontal layout */
+            flex-direction: column; /* Changed to vertical layout */
             flex-wrap: nowrap; /* Prevent wrapping to next line */
             border: 1px solid var(--line-color);
             padding: 10px;
@@ -232,6 +232,12 @@
             align-items: center;
             gap: 5px;
             font-size: 0.8rem; /* Reduced font size for smaller buttons */
+        }
+
+        .filter-row {
+            display: flex;
+            justify-content: center;
+            gap: 5px; /* Reduced gap for smaller buttons */
         }
 
         .filter-button.checked {
@@ -561,26 +567,39 @@
         <p>Welcome to my project page! Here you can read about all my projects more in depth as you click on the filters below!</p>
             <div class="filter-label" style="color: var(--text-color); text-align: center;">Filters</div>
             <div class="filter-container">
-                <div class="filter-button" data-filter="all" onclick="toggleFilter(this)">
-                    <img src="img/unchecked.png" class="filter-icon" id="filter-all-icon"> All
+                <div class="filter-row">
+                    <div class="filter-button" data-filter="all" onclick="toggleFilter(this)">
+                        <img src="img/unchecked.png" class="filter-icon" id="filter-all-icon"> All
+                    </div>
+                    <div class="filter-button" data-filter="music" onclick="toggleFilter(this)">
+                        <img src="img/unchecked.png" class="filter-icon" id="filter-music-icon"> Music
+                    </div>
+                    <div class="filter-button" data-filter="html" onclick="toggleFilter(this)">
+                        <img src="img/unchecked.png" class="filter-icon" id="filter-html-icon"> HTML
+                    </div>
+                    <div class="filter-button" data-filter="ruby" onclick="toggleFilter(this)">
+                        <img src="img/unchecked.png" class="filter-icon" id="filter-ruby-icon"> Ruby on Rails
+                    </div>
+                    <div class="filter-button" data-filter="javascript" onclick="toggleFilter(this)">
+                        <img src="img/unchecked.png" class="filter-icon" id="filter-javascript-icon"> JavaScript
+                    </div>
+                    <div class="filter-button" data-filter="typescript" onclick="toggleFilter(this)">
+                        <img src="img/unchecked.png" class="filter-icon" id="filter-typescript-icon"> TypeScript
+                    </div>
+                    <div class="filter-button" data-filter="marching arts" onclick="toggleFilter(this)">
+                        <img src="img/unchecked.png" class="filter-icon" id="filter-typescript-icon"> Marching Arts
+                    </div>
                 </div>
-                <div class="filter-button" data-filter="music" onclick="toggleFilter(this)">
-                    <img src="img/unchecked.png" class="filter-icon" id="filter-music-icon"> Music
-                </div>
-                <div class="filter-button" data-filter="html" onclick="toggleFilter(this)">
-                    <img src="img/unchecked.png" class="filter-icon" id="filter-html-icon"> HTML
-                </div>
-                <div class="filter-button" data-filter="ruby" onclick="toggleFilter(this)">
-                    <img src="img/unchecked.png" class="filter-icon" id="filter-ruby-icon"> Ruby on Rails
-                </div>
-                <div class="filter-button" data-filter="javascript" onclick="toggleFilter(this)">
-                    <img src="img/unchecked.png" class="filter-icon" id="filter-javascript-icon"> JavaScript
-                </div>
-                <div class="filter-button" data-filter="typescript" onclick="toggleFilter(this)">
-                    <img src="img/unchecked.png" class="filter-icon" id="filter-typescript-icon"> TypeScript
-                </div>
-                <div class="filter-button" data-filter="marching arts" onclick="toggleFilter(this)">
-                    <img src="img/unchecked.png" class="filter-icon" id="filter-typescript-icon"> Marching Arts
+                <div class="filter-row">
+                    <div class="filter-button" data-filter="tech" onclick="toggleFilter(this)">
+                        <img src="img/unchecked.png" class="filter-icon" id="filter-tech-icon"> Tech
+                    </div>
+                    <div class="filter-button" data-filter="news" onclick="toggleFilter(this)">
+                        <img src="img/unchecked.png" class="filter-icon" id="filter-news-icon"> News
+                    </div>
+                    <div class="filter-button" data-filter="personal" onclick="toggleFilter(this)">
+                        <img src="img/unchecked.png" class="filter-icon" id="filter-personal-icon"> Personal
+                    </div>
                 </div>
             </div>
         <!-- Viewing Projects Text -->

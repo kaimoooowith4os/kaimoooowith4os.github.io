@@ -4,7 +4,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Blog</title>
+    <title>Blog: Default Apps & Setups</title>
     <link rel="icon" href="img/favicon2.png" type="image/png"> <!-- Added favicon link -->
     <style>
         @import url('https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600&display=swap');
@@ -18,9 +18,6 @@
             --line-color: rgba(0,0,0,0.1);
             --line-highlight: rgba(0,0,0,0.5);
             --nav-bg: rgba(255, 255, 255, 0.9);
-            --filter-checked-light: #d3d3d3; /* Darker gray for light mode */
-            --filter-checked-dark: #4a4a4a; /* Lighter gray for dark mode */
-            --filter-active: #d3d3d3; /* Lighter gray for active filters in both modes */
         }
 
         .dark {
@@ -139,22 +136,15 @@
         html:not(.dark) #theme-toggle .moon {
             display: block;
         }
-        
+
         .container {
             display: flex;
-            flex-direction: column; /* Change to column for vertical alignment */
-            align-items: center; /* Center align items */
+            justify-content: center;
+            align-items: center;
             min-height: 100vh;
+            gap: 3rem;
             padding: 2rem;
             margin-top: -10rem;
-        }
-
-        .portfolio-wrapper {
-            display: flex;
-            flex-direction: column; /* Stack portfolio options vertically */
-            align-items: center; /* Center align portfolio options */
-            max-width: 800px; /* Match the width of the about-me container */
-            width: 100%; /* Allow full width within the limit */
         }
 
         .about-me-container {
@@ -164,23 +154,8 @@
             background: var(--card-bg); /* Background for separation */
             border-radius: 15px; /* Rounded corners */
             box-shadow: 0 10px 20px rgba(0,0,0,0.1); /* Shadow for depth */
-            color: var(--text-color); /* Ensure text is visible in dark mode */
         }
-        .portfolio-option {
-            padding: 10px 15px; /* Adjusted padding for chip style */
-            background: var(--card-bg);
-            border-radius: 20px; /* Rounded corners for chip effect */
-            text-align: center;
-            cursor: pointer;
-            transition: all 0.3s ease;
-            box-shadow: 0 4px 10px rgba(0,0,0,0.1);
-            width: 100%; /* Set width to 100% to match the about-me container */
-            margin: 1rem; /* Add margin for spacing */
-        }
-        .portfolio-option:hover {
-            transform: translateY(-5px);
-            box-shadow: 0 8px 20px rgba(0,0,0,0.15);
-        }
+
         h1 {
             text-align: center;
             margin: 2rem 0;
@@ -205,54 +180,33 @@
         }
         .features li {
             margin-bottom: 0.5rem;
+            color: var(--text-color); /* Ensure text color is visible in dark mode */
         }
 
-        /* Filter Styles */
-        .filter-container {
+        /* Navigation Buttons Styles */
+        .nav-projects {
             display: flex;
-            justify-content: center;
-            margin: 2rem 0;
-            gap: 5px; /* Reduced gap for smaller buttons */
-            flex-direction: column; /* Changed to vertical layout */
-            flex-wrap: nowrap; /* Prevent wrapping to next line */
-            border: 1px solid var(--line-color);
-            padding: 10px;
-            border-radius: 5px;
-            background: var(--card-bg);
+            justify-content: space-between;
+            margin-top: 20px;
         }
 
-        .filter-row {
-            display: flex;
-            justify-content: center;
-            gap: 5px; /* Reduced gap for smaller buttons */
-        }
-
-        .filter-label {
-            font-weight: bold;
-            margin-bottom: 10px;
-        }
-
-        .filter-button {
-            padding: 5px 10px; /* Reduced padding for smaller buttons */
-            border: 2px solid var(--line-color);
-            border-radius: 20px; /* Rounded corners for chip effect */
+        .nav-projects button {
             background: var(--card-bg);
             color: var(--card-text);
+            border: none;
+            border-radius: 5px;
+            padding: 10px 15px;
             cursor: pointer;
+            box-shadow: 0 2px 10px rgba(0,0,0,0.1);
             transition: background-color 0.3s ease;
-            display: flex;
-            align-items: center;
-            gap: 5px;
-            font-size: 0.8rem; /* Reduced font size for smaller buttons */
         }
 
-        .filter-button.checked {
-            background-color: var(--filter-active); /* Use lighter gray for active filters */
+        .nav-projects button:hover {
+            background-color: rgba(255, 255, 255, 0.1);
         }
 
-        .filter-icon {
-            width: 16px; /* Reduced icon size */
-            height: 16px; /* Reduced icon size */
+        .nav-projects .arrow {
+            margin: 0 5px;
         }
 
         /* Search Bar Styles */
@@ -435,6 +389,7 @@
             padding: 20px;
             text-align: center; 
             position: relative;
+            margin-top: 20px; /* Added margin for spacing */
         }
 
         .footer .footer-buttons {
@@ -488,15 +443,58 @@
             font-size: 1.5rem; /* Adjust icon size */
         }
 
-        /* Tag Styles */
-        .tag {
-            display: inline-block;
-            background-color: #e0e0e0;
-            color: #333;
-            padding: 5px 10px;
+        /* Read Time Button Styles */
+        .read-time-button {
+            display: flex;
+            align-items: center;
+            background: var(--card-bg);
+            color: var(--card-text);
+            border: none;
             border-radius: 5px;
-            font-size: 0.8rem;
-            margin: 5px 0;
+            padding: 10px 15px;
+            cursor: default;
+            box-shadow: 0 2px 10px rgba(0,0,0,0.1);
+            margin: 20px auto; /* Center the button */
+            transition: background-color 0.3s ease;
+        }
+
+        .read-time-button:hover {
+            background-color: rgba(255, 255, 255, 0.1);
+        }
+
+        .read-time-button .icon {
+            width: 20px;
+            height: 20px;
+            margin-right: 5px;
+        }
+
+        /* Dark mode open book icon */
+        .read-time-button .dark-icon {
+            display: none;
+        }
+
+        html.dark .read-time-button .dark-icon {
+            display: block;
+        }
+
+        html:not(.dark) .read-time-button .dark-icon {
+            display: none;
+        }
+
+        html:not(.dark) .read-time-button .light-icon {
+            display: block;
+        }
+
+        html.dark .read-time-button .light-icon {
+            display: none;
+        }
+
+        /* List Item Styles for Dark Mode */
+        ul {
+            color: var(--secondary-text); /* Ensure list text color is visible in dark mode */
+        }
+        li {
+            color: var(--secondary-text); /* Ensure list item text color is visible in dark mode */
         }
     </style>
 </head>
@@ -546,94 +544,98 @@
         <span>Loading...</span>
     </div>
 
-    <h1>Blog</h1>
+    <h1>Apps I Use & Setup</h1>
+    <p style="text-align: center; color: var(--secondary-text);">Last updated: 26 February 2025</p>
 
-    <!-- Business Card -->
-    <div class="business-card" style="margin: 4rem auto;">
-        <img src="assets/images/soloist.jpg" alt="Profile Picture" class="avatar" style="width: 150px; height: 150px;">
-        <div class="business-card-content">
-            <h3>Kaimo Zhao</h3>
-            <div class="title">Full-Stack Developer & Music Educator</div>
-            <div class="contact">
-                📧 kaimozhaomusic@gmail.com<br>
-                🔗 github.com/kaimoooowith4os<br>
-                🌐 kmzstudio.com
-            </div>
-        </div>
-        <div class="text-buttons" style="margin-top: 1rem;">
-            <button class="nav-button" onclick="window.location.href='about.html'">About Me</button>
-            <button class="nav-button" onclick="window.location.href='contact.html'">Contact</button>
-            <button class="nav-button" onclick="window.location.href='slashes.html'">Slashes</button>
-        </div>
-    </div>
-    <!-- Text Box -->
+    <!-- About Me Container -->
     <div class="about-me-container">
-        <p>Welcome to my blog page! Here you can read about all my blog more in depth as you click on the filters below!</p>
-            <div class="filter-label" style="color: var(--text-color); text-align: center;">Filters</div>
-            <div class="filter-container">
-                <div class="filter-row">
-                    <div class="filter-button" data-filter="all" onclick="toggleFilter(this)">
-                        <img src="img/unchecked.png" class="filter-icon" id="filter-all-icon"> All
-                    </div>
-                    <div class="filter-button" data-filter="music" onclick="toggleFilter(this)">
-                        <img src="img/unchecked.png" class="filter-icon" id="filter-music-icon"> Music
-                    </div>
-                    <div class="filter-button" data-filter="html" onclick="toggleFilter(this)">
-                        <img src="img/unchecked.png" class="filter-icon" id="filter-html-icon"> HTML
-                    </div>
-                    <div class="filter-button" data-filter="ruby" onclick="toggleFilter(this)">
-                        <img src="img/unchecked.png" class="filter-icon" id="filter-ruby-icon"> Ruby on Rails
-                    </div>
-                    <div class="filter-button" data-filter="javascript" onclick="toggleFilter(this)">
-                        <img src="img/unchecked.png" class="filter-icon" id="filter-javascript-icon"> JavaScript
-                    </div>
-                    <div class="filter-button" data-filter="typescript" onclick="toggleFilter(this)">
-                        <img src="img/unchecked.png" class="filter-icon" id="filter-typescript-icon"> TypeScript
-                    </div>
-                    <div class="filter-button" data-filter="marching arts" onclick="toggleFilter(this)">
-                        <img src="img/unchecked.png" class="filter-icon" id="filter-typescript-icon"> Marching Arts
-                    </div>
-                </div>
-                <div class="filter-row">
-                    <div class="filter-button" data-filter="tech" onclick="toggleFilter(this)">
-                        <img src="img/unchecked.png" class="filter-icon" id="filter-tech-icon"> Tech
-                    </div>
-                    <div class="filter-button" data-filter="news" onclick="toggleFilter(this)">
-                        <img src="img/unchecked.png" class="filter-icon" id="filter-news-icon"> News
-                    </div>
-                    <div class="filter-button" data-filter="personal" onclick="toggleFilter(this)">
-                        <img src="img/unchecked.png" class="filter-icon" id="filter-personal-icon"> Personal
-                    </div>
-                </div>
-            </div>
-        <!-- Viewing Projects Text -->
-        <div id="projects-viewing" style="text-align: center; margin-bottom: 2rem; color: var(--text-color);">
-            Viewing <span id="visible-count">0</span> blogs out of <span id="total-count">0</span> blogs...
-        </div>
-    </div>
+        <!-- Read Time Button -->
+        <button class="read-time-button">
+            <img src="https://img.icons8.com/ios-filled/50/000000/open-book.png" class="icon light-icon" alt="Open Book Icon"/>
+            <img src="https://img.icons8.com/ios-filled/50/ffffff/open-book.png" class="icon dark-icon" alt="Open Book Icon Dark Mode"/>
+        Approximately 2 minutes to read
+        </button>
+        <p>Welcome to my Setup blog page! I stole this idea from a couple different websites because I felt like it, but I also added my tech setup because why not?</p>
+        <br>
+        <p><strong>Apps</strong></p>
+        <ul> <!-- Changed to <ul> for proper list structure -->
+            <li>Mail: Gmail</li>
+            <li>Notes: Obsidian & Apple Notes</li>
+            <li>To-Do: Obsidian</li>
+            <li>Camera: Default iOS Camera App</li>
+            <li>Photo Management: iOS Photo App & Synology NAS</li>
+            <li>Calendar: iOS Default Calendar</li>
+            <li>Cloud File Storage: Dropbox, Google Drive, Synology NAS</li>
+            <li>Contacts: iOS Default Contact App</li>
+            <li>Browser: Arc on PC & iPhone, Google Chrome on MacBook</li>
+            <li>Chat: Discord, Snapchat, WhatsApp, Instagram Messages</li>
+            <li>Word Processing: Google Documents</li>
+            <li>Spreadsheets: Google Spreadsheets</li>
+            <li>Presentations: Google Slides for casual, Canva for school</li>
+            <li>News: Apple News</li>
+            <li>Music: Spotify (Premium)</li>
+            <li>Podcasts: Spotify (Premium) & Apple Podcasts</li>
+            <li>Password Management: 1Password</li>
+        </ul>
+        <br>
+        <p><strong>Technology</strong></p>
+        <ul>
+            <li>Gaming: Custom PC</li>
+            <li>Coding: MacBook Air M1</li>
+            <li>Phone: iPhone 13</li>
+            <li>School: MacBook Air M1</li>
+        </ul>
+        <br>
+        <p><strong>Specs & Accessories</strong></p>
+            <p><i>PC Specs</i></p>
+        <ul>
+            <li>CPU: Intel i7</li>
+            <li>GPU: Radeon 6750</li>
+            <li>Disk C: 256 GB</li>
+            <li>Disk D: 1 TB</li>
+            <li>RAM: 32 GB</li>
+            <li>OS: Windows 10</li>
+        </ul>
+            <p><i>MacBook Specs</i></p>
+        <ul>
+            <li>CPU: Apple Silicon M1</li>
+            <li>Memory: 256 GB</li>
+            <li>Unified Memory: 8 GB</li>
+            <li>OS: Whatevers the most updated one</li>
+        </ul>
+           <p><i>PC Accessories</i></p>
+        <ul>
+            <li>Mouse: Glorious Model O</li>
+            <li>Keyboard: Custom made Sofle Keyboard</li>
+            <li>Microphone: Random Fifine Mic</li>
+        </ul>
+            <p><i>MacBook Accessories</i></p>
+        <ul>
+            <li>External Storage: 1 TB</li>
+            <li>Dongles</li>
+            <ul>
+                <li>USB-C to USB-A Dongle</li>
+                <li>Samsung USB-C to USB-A Dongle</li>
+            </ul>
+            <li>MacBook Stand</li>
+            <li>USB-C to USB-C to connect to monitor</li>
+        </ul>
 
-    <div class="container" style="margin-top: 0.075rem;">
-        <div class="portfolio-wrapper">
-            <div class="portfolio-option" onclick="window.location.href='usesblog.html'" data-search="tech macbook personal news pc radeon 6750 intel">
-                <h2>Apps & Tech I Use</h2>
-                <p><i>Posted on February 25th, 2025</i></p>
-                <ul class="features">
-                    <li>Default apps and tech I use, ie. emails, browser, etc.</li>
-                </ul>
-                <div class="tag">Tech</div>
-                <div class="tag">Personal</div>
-            </div>
-        </div>
-        <div class="portfolio-wrapper">
-            <div class="portfolio-option" onclick="window.location.href='usesblog.html'" data-search="news personal html javascript typescript tech">
-                <h2>Welcome to KMZStudio</h2>
-                <p><i>Posted on February 25th, 2025</i></p>
-                <ul class="features">
-                    <li>First blog! Welcome!</li>
-                </ul>
-                <div class="tag">Tech</div>
-                <div class="tag">Personal</div>
-            </div>
+        
+        
+        <!-- Go Back to Projects Button -->
+        <button class="nav-button" onclick="window.location.href='blog.html'" style="margin: 20px auto;">
+            Go back to blogs page
+        </button>
+
+        <!-- Navigation Buttons -->
+        <div class="nav-projects">
+            <button onclick="window.location.href='wlcblog.html'">
+                <span class="arrow">←</span> Previous Blog
+            </button>
+            <button onclick="window.location.href='usesblog.html'">
+                Next Blog <span class="arrow">→</span>
+            </button>
         </div>
     </div>
 
@@ -658,7 +660,7 @@
             <a class="footer-button" href="https://tailwindcss.com/" target="_blank">
                 <img src="img/Tailwind_CSS_Logo.png" alt="Tailwind Logo"> Tailwind
             </a>
-            <a class="footer-button" href="https://www.php.net//" target="_blank">
+            <a class="footer-button" href="https://www.php.net/" target="_blank">
                 <img src="https://www.php.net/images/logos/php-logo.svg" alt="PHP Logo"> PHP
             </a>
         </div>
@@ -705,18 +707,7 @@
         const portfolioOptions = document.querySelectorAll('.portfolio-option');
         const navContainer = document.querySelector('.nav-container');
         const backToTopButton = document.getElementById('backToTop');
-        const projectsViewing = document.getElementById('projects-viewing');
-        const visibleCount = document.getElementById('visible-count');
-        const totalCount = document.getElementById('total-count');
         let lastScrollY = window.scrollY;
-
-        // Update project counts
-        function updateProjectCounts() {
-            const total = portfolioOptions.length;
-            const visible = Array.from(portfolioOptions).filter(option => !option.classList.contains('hidden')).length;
-            visibleCount.textContent = visible;
-            totalCount.textContent = total;
-        }
 
         searchToggle.addEventListener('click', () => {
             searchContainer.classList.add('expanded');
@@ -737,32 +728,6 @@
                 const isVisible = searchData.includes(searchTerm);
                 option.classList.toggle('hidden', !isVisible);
             });
-            updateProjectCounts(); // Update counts after filtering
-        });
-
-        // Filter functionality
-        const filterButtons = document.querySelectorAll('.filter-button');
-
-        filterButtons.forEach(button => {
-            button.addEventListener('click', () => {
-                const icon = button.querySelector('.filter-icon');
-                if (button.classList.toggle('checked')) {
-                    icon.src = 'img/checked.png'; // Change to checked icon
-                } else {
-                    icon.src = 'img/unchecked.png'; // Change to unchecked icon
-                }
-
-                const selectedFilters = Array.from(filterButtons)
-                    .filter(btn => btn.classList.contains('checked'))
-                    .map(btn => btn.getAttribute('data-filter'));
-
-                portfolioOptions.forEach(option => {
-                    const searchData = option.getAttribute('data-search').toLowerCase();
-                    const isVisible = selectedFilters.some(filter => searchData.includes(filter)) || selectedFilters.includes('all');
-                    option.classList.toggle('hidden', !isVisible);
-                });
-                updateProjectCounts(); // Update counts after filtering
-            });
         });
 
         // Scroll-based navbar visibility and back to top button
@@ -781,9 +746,6 @@
         backToTopButton.addEventListener('click', () => {
             window.scrollTo({ top: 0, behavior: 'smooth' });
         });
-
-        // Initialize project counts on page load
-        updateProjectCounts();
     </script>
 </body>
 </html>
