@@ -1,0 +1,204 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>About Me | KMZStudio</title>
+    <link rel="icon" href="img/fave.png" type="image/png">
+    <!-- Fredoka One for a bold, cartoony look -->
+    <link href="https://fonts.googleapis.com/css2?family=Fredoka+One&display=swap" rel="stylesheet">
+    <style>
+        body {
+            font-family: 'Fredoka One', Arial, sans-serif;
+            background: linear-gradient(135deg, #ffe7a3 0%, #a3eaff 100%);
+            color: #222;
+            margin: 0;
+            min-height: 100vh;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: flex-start;
+        }
+        .about-container {
+            max-width: 520px;
+            margin: 60px auto 0 auto;
+            background: rgba(255,255,255,0.95);
+            border-radius: 32px;
+            box-shadow: 0 8px 32px 0 rgba(0,0,0,0.10), 0 1.5px 0 #ffd166;
+            padding: 48px 32px 36px 32px;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            position: relative;
+        }
+        .mascot {
+            margin-bottom: 18px;
+            animation: bounceIn 1.2s cubic-bezier(.68,-0.55,.27,1.55);
+        }
+        @keyframes bounceIn {
+            0% { transform: scale(0.7) translateY(-60px); opacity: 0; }
+            60% { transform: scale(1.1) translateY(10px); opacity: 1; }
+            80% { transform: scale(0.95) translateY(-4px); }
+            100% { transform: scale(1) translateY(0); }
+        }
+        .about-title {
+            font-size: 2.8rem;
+            font-weight: bold;
+            letter-spacing: 2px;
+            margin-bottom: 8px;
+            color: #ff6f61;
+            text-shadow: 4px 4px 0 #ffd166, 0 2px 12px #a3eaff;
+            text-align: center;
+        }
+        .about-underline {
+            width: 80px;
+            height: 8px;
+            background: linear-gradient(90deg, #ffd166 40%, #a3eaff 100%);
+            border-radius: 6px;
+            margin-bottom: 28px;
+        }
+        .about-bio {
+            font-size: 1.25rem;
+            color: #444;
+            text-align: center;
+            margin-bottom: 32px;
+            line-height: 1.7;
+            background: #fffbe7;
+            border-radius: 24px;
+            padding: 18px 20px 16px 20px;
+            box-shadow: 0 2px 12px 0 rgba(255,223,102,0.10);
+        }
+        .about-section-title {
+            font-size: 1.2rem;
+            font-weight: bold;
+            color: #1e90ff;
+            margin-bottom: 10px;
+            margin-top: 22px;
+            text-align: left;
+            width: 100%;
+            letter-spacing: 1px;
+        }
+        .about-list {
+            list-style: none;
+            padding: 0;
+            margin: 0 0 18px 0;
+            width: 100%;
+            display: flex;
+            flex-direction: column;
+            gap: 12px;
+        }
+        .about-list li {
+            font-size: 1.08rem;
+            color: #333;
+            background: linear-gradient(90deg, #a3eaff 0%, #ffe7a3 100%);
+            border-radius: 18px;
+            padding: 12px 18px;
+            box-shadow: 0 2px 8px 0 rgba(163,234,255,0.10);
+            margin-bottom: 0;
+            font-weight: 500;
+            display: flex;
+            align-items: center;
+        }
+        .about-list li a {
+            color: #ff6f61;
+            text-decoration: underline;
+            font-weight: bold;
+            transition: color 0.2s;
+        }
+        .about-list li a:hover {
+            color: #1e90ff;
+        }
+        .about-links {
+            margin-top: 32px;
+            display: flex;
+            gap: 22px;
+            justify-content: center;
+            flex-wrap: wrap;
+        }
+        .about-link {
+            color: #fff;
+            background: linear-gradient(90deg, #ff6f61 60%, #ffd166 100%);
+            text-decoration: none;
+            font-weight: bold;
+            font-size: 1.15rem;
+            border-radius: 30px;
+            padding: 12px 28px;
+            box-shadow: 0 2px 8px 0 rgba(255,111,97,0.10);
+            transition: background 0.2s, color 0.2s, transform 0.15s;
+            display: inline-block;
+            margin-bottom: 8px;
+        }
+        .about-link:hover {
+            background: linear-gradient(90deg, #1e90ff 60%, #a3eaff 100%);
+            color: #fffbe7;
+            transform: scale(1.08) rotate(-2deg);
+        }
+        .about-footer {
+            margin-top: 44px;
+            font-size: 1.05rem;
+            color: #aaa;
+            text-align: center;
+        }
+        @media (max-width: 600px) {
+            .about-container {
+                padding: 18px 4px 12px 4px;
+            }
+            .about-title {
+                font-size: 1.7rem;
+            }
+            .about-list li {
+                font-size: 0.98rem;
+                padding: 10px 10px;
+            }
+            .about-link {
+                font-size: 1rem;
+                padding: 10px 16px;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="about-container">
+        <!-- Fun SVG mascot -->
+        <div class="mascot">
+            <svg width="110" height="110" viewBox="0 0 110 110" fill="none">
+                <ellipse cx="55" cy="70" rx="40" ry="32" fill="#ffd166" stroke="#ff6f61" stroke-width="5"/>
+                <ellipse cx="42" cy="65" rx="7" ry="10" fill="#fff"/>
+                <ellipse cx="68" cy="65" rx="7" ry="10" fill="#fff"/>
+                <ellipse cx="42" cy="68" rx="2.5" ry="3.5" fill="#222"/>
+                <ellipse cx="68" cy="68" rx="2.5" ry="3.5" fill="#222"/>
+                <ellipse cx="55" cy="85" rx="12" ry="6" fill="#fff"/>
+                <ellipse cx="55" cy="88" rx="7" ry="2.5" fill="#ff6f61"/>
+                <ellipse cx="55" cy="48" rx="22" ry="13" fill="#ffd166" stroke="#ff6f61" stroke-width="4"/>
+                <ellipse cx="35" cy="40" rx="6" ry="3" fill="#ff6f61" opacity="0.3"/>
+                <ellipse cx="75" cy="40" rx="6" ry="3" fill="#ff6f61" opacity="0.3"/>
+            </svg>
+        </div>
+        <div class="about-title">Kaimo Zhao</div>
+        <div class="about-underline"></div>
+        <div class="about-bio">
+            Hi! I'm Kaimo, a creative technologist and musician. I love making games, interactive art, and music projects that bring people together. I enjoy learning new things, collaborating with friends, and sharing my work with the world.<br><br>
+            This page is inspired by the playful, cartoony style of <a href="https://www.mattmakesgames.com/" class="about-link" target="_blank" style="background:none;color:#1e90ff;padding:0;">Maddy Makes Games</a>.
+        </div>
+        <div class="about-section-title">Projects & Interests</div>
+        <ul class="about-list">
+            <li>Game development (Unity, PICO-8, web games)</li>
+            <li>Music composition & production</li>
+            <li>Interactive web art</li>
+            <li>Band: <a href="https://thebeetroots.rocks" class="about-link" target="_blank" style="background:none;color:#ff6f61;padding:0;">The Beetroots</a></li>
+            <li>Open source & creative coding</li>
+        </ul>
+        <div class="about-section-title">Links</div>
+        <div class="about-links">
+            <a href="index.html" class="about-link">Portfolio</a>
+            <a href="personal.html" class="about-link">About Me</a>
+            <a href="https://thebeetroots.rocks" class="about-link" target="_blank">Music</a>
+            <a href="https://www.instagram.com/thebeetrootsband/" class="about-link" target="_blank">Instagram</a>
+            <a href="https://www.youtube.com/channel/UCPUSWe2500w95SIJ4eVTN0A" class="about-link" target="_blank">YouTube</a>
+        </div>
+        <div class="about-footer">
+            &copy; 2024 Kaimo Zhao &middot; Inspired by <a href="https://www.mattmakesgames.com/" class="about-link" target="_blank" style="background:none;color:#1e90ff;padding:0;">Maddy Makes Games</a>
+        </div>
+    </div>
+</body>
+</html>

@@ -1,0 +1,181 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>kae em zee stuodio inof</title>
+    <link rel="icon" href="img/favicon2.png" type="image/png">
+    <link href="https://fonts.googleapis.com/css2?family=Helvetica+Neue:wght@300;400;700&display=swap" rel="stylesheet">
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        
+        body {
+            font-family: 'Helvetica Neue', sans-serif;
+            background-color: #fff;
+            color: #000;
+            line-height: 1.6;
+            overflow-x: hidden;
+        }
+
+        .navbar {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            padding: 30px 40px;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            z-index: 100;
+        }
+
+        .nav-links {
+            display: flex;
+            gap: 40px;
+        }
+
+        .nav-links a {
+            color: #000;
+            text-decoration: none;
+            font-size: 0.8rem;
+            letter-spacing: 3px;
+            text-transform: uppercase;
+            transition: opacity 0.3s ease;
+            font-weight: 300;
+        }
+
+        .nav-links a:hover {
+            opacity: 0.7;
+        }
+
+        .content {
+            padding: 120px 40px 40px;
+            max-width: 800px;
+            margin: 0 auto;
+            opacity: 0;
+            transform: translateY(20px);
+            animation: fadeIn 0.8s ease forwards;
+        }
+
+        .about-text {
+            font-size: 1rem;
+            font-weight: 300;
+            line-height: 1.8;
+            margin-bottom: 60px;
+        }
+
+        .about-text p {
+            margin-bottom: 20px;
+        }
+
+        .members-section {
+            margin-top: 60px;
+        }
+
+        .members-title {
+            font-size: 1.2rem;
+            font-weight: 300;
+            letter-spacing: 2px;
+            margin-bottom: 30px;
+            text-transform: uppercase;
+        }
+
+        .members-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 40px;
+            margin-top: 30px;
+        }
+
+        .member {
+            opacity: 0;
+            transform: translateY(20px);
+            animation: fadeIn 0.8s ease forwards;
+            animation-delay: calc(var(--delay) * 0.2s);
+        }
+
+        .member-name {
+            font-size: 1.1rem;
+            font-weight: 300;
+            margin-bottom: 5px;
+            letter-spacing: 1px;
+        }
+
+        .member-role {
+            font-size: 0.9rem;
+            color: #888;
+            margin-bottom: 15px;
+        }
+
+        .member-bio {
+            font-size: 0.9rem;
+            font-weight: 300;
+            line-height: 1.6;
+        }
+
+        @keyframes fadeIn {
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        @media (max-width: 768px) {
+            .content {
+                padding: 100px 20px 20px;
+            }
+            
+            .about-text {
+                font-size: 0.9rem;
+            }
+
+            .members-grid {
+                grid-template-columns: 1fr;
+            }
+        }
+    </style>
+</head>
+<body>
+    <nav class="navbar">
+        <div class="nav-links">
+            <a href="index.html">Home</a>
+            <a href="music.html">Portfolios</a>
+            <a href="about-members.html">Personal</a>
+            <a href="https://thebeetroots.rocks">Music</a>
+        </div>
+    </nav>
+
+    <div class="content">
+        <div class="about-text">
+            <p>kai is an in-ear physicist, computer code manipulator, and sometimes teaches trumpet. as i continue to update this website, i want to stray away from my original idea of teaching trumpet. no, it's not hard, but it's definitely very slow business.</p>
+
+            <p>i'm currently available to arrange/compose music. I work relatively slow.</p>
+        </div>
+
+        <div class="members-section">
+            <h2 class="members-title">FAQ</h2>
+            <div class="members-grid">
+                <div class="member" style="--delay: 1">
+                    <h3 class="member-name">Why does your website have so many different styles?</h3>
+                    <div class="member-role">Website Design & Inquiries</div>
+                    <p class="member-bio">I love free stuff, and I love using the stuff I paid for. Everything outside of the two portfolios are custom coded, and so are the minimalistic "cover" pages that cover the website. The website was built from the inside out, rather from the outside in, making it incongruent and use different styles.</p>
+                </div>
+                <div class="member" style="--delay: 2">
+                    <h3 class="member-name">Why are you straying away from trumpet teaching?</h3>
+                    <div class="member-role">Music</div>
+                    <p class="member-bio">It's a slow business. No one really needs a teacher recently.</p>
+                </div>
+                <div class="member" style="--delay: 3">
+                    <h3 class="member-name">Why are you choosing to arrange/compose music?</h3>
+                    <div class="member-role">Music</div>
+                    <p class="member-bio">I'm pretty good at arranging. Composing doesn't seem too hard.</p>
+                </div>
+            </div>
+        </div>
+    </div>
+</body>
+</html>

@@ -4,7 +4,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Blog: Welcome to KMZStudio</title>
+    <title>Portfolio Selection</title>
     <link rel="icon" href="img/favicon2.png" type="image/png"> <!-- Added favicon link -->
     <style>
         @import url('https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600&display=swap');
@@ -146,16 +146,27 @@
             padding: 2rem;
             margin-top: -10rem;
         }
-
-        .about-me-container {
-            max-width: 800px; /* Limit the width */
-            margin: 0 auto; /* Center the container */
-            padding: 2rem; /* Add padding */
-            background: var(--card-bg); /* Background for separation */
-            border-radius: 15px; /* Rounded corners */
-            box-shadow: 0 10px 20px rgba(0,0,0,0.1); /* Shadow for depth */
+        .portfolio-option {
+            padding: 2rem;
+            background: var(--card-bg);
+            border-radius: 15px;
+            text-align: center;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            box-shadow: 0 10px 20px rgba(0,0,0,0.1);
+            width: 300px;
         }
-
+        .portfolio-option:hover {
+            transform: translateY(-10px);
+            box-shadow: 0 15px 30px rgba(0,0,0,0.15);
+        }
+        .portfolio-option img {
+            width: 100%;
+            height: 200px;
+            object-fit: cover;
+            border-radius: 10px;
+            margin-bottom: 1.5rem;
+        }
         h1 {
             text-align: center;
             margin: 2rem 0;
@@ -168,8 +179,9 @@
             margin-bottom: 0.5rem;
         }
         p {
-            color: var(--secondary-text);
+            color: #000000;
             margin-bottom: 1.5rem;
+            text-align: center;
         }
         .features {
             list-style: none;
@@ -180,32 +192,6 @@
         }
         .features li {
             margin-bottom: 0.5rem;
-        }
-
-        /* Navigation Buttons Styles */
-        .nav-projects {
-            display: flex;
-            justify-content: space-between;
-            margin-top: 20px;
-        }
-
-        .nav-projects button {
-            background: var(--card-bg);
-            color: var(--card-text);
-            border: none;
-            border-radius: 5px;
-            padding: 10px 15px;
-            cursor: pointer;
-            box-shadow: 0 2px 10px rgba(0,0,0,0.1);
-            transition: background-color 0.3s ease;
-        }
-
-        .nav-projects button:hover {
-            background-color: rgba(255, 255, 255, 0.1);
-        }
-
-        .nav-projects .arrow {
-            margin: 0 5px;
         }
 
         /* Search Bar Styles */
@@ -388,7 +374,6 @@
             padding: 20px;
             text-align: center; 
             position: relative;
-            margin-top: 20px; /* Added margin for spacing */
         }
 
         .footer .footer-buttons {
@@ -441,52 +426,6 @@
             text-decoration: none;
             font-size: 1.5rem; /* Adjust icon size */
         }
-
-        /* Read Time Button Styles */
-        .read-time-button {
-            display: flex;
-            align-items: center;
-            background: var(--card-bg);
-            color: var(--card-text);
-            border: none;
-            border-radius: 5px;
-            padding: 10px 15px;
-            cursor: default;
-            box-shadow: 0 2px 10px rgba(0,0,0,0.1);
-            margin: 20px auto; /* Center the button */
-            transition: background-color 0.3s ease;
-        }
-
-        .read-time-button:hover {
-            background-color: rgba(255, 255, 255, 0.1);
-        }
-
-        .read-time-button .icon {
-            width: 20px;
-            height: 20px;
-            margin-right: 5px;
-        }
-
-        /* Dark mode open book icon */
-        .read-time-button .dark-icon {
-            display: none;
-        }
-
-        html.dark .read-time-button .dark-icon {
-            display: block;
-        }
-
-        html:not(.dark) .read-time-button .dark-icon {
-            display: none;
-        }
-
-        html:not(.dark) .read-time-button .light-icon {
-            display: block;
-        }
-
-        html.dark .read-time-button .light-icon {
-            display: none;
-        }
     </style>
 </head>
 <!-- Actual content lol-->
@@ -535,36 +474,47 @@
         <span>Loading...</span>
     </div>
 
-    <h1>Welcome to KMZStudio</h1>
-    <p style="text-align: center; color: var(--secondary-text);">Last updated: 25 February 2025</p>
+    <h1>Choose Your Portfolio</h1>
 
-    <!-- About Me Container -->
-    <div class="about-me-container">
-        <!-- Read Time Button -->
-        <button class="read-time-button">
-            <img src="https://img.icons8.com/ios-filled/50/000000/open-book.png" class="icon light-icon" alt="Open Book Icon"/>
-            <img src="https://img.icons8.com/ios-filled/50/ffffff/open-book.png" class="icon dark-icon" alt="Open Book Icon Dark Mode"/>
-        Approximately 1 minute to read
-        </button>
-        <p>Welcome to KMZStudio! KMZStudio is a music and programming studio dedicated to quality, client satisfaction, and offering a wide range of services; from trumpet teaching, and drill writing, to programming. The website is run by Kaimo Zhao, who so just happens to be the only trumpet teacher, drill writer, composer, conductor, and full-stack developer on this website... and whom the website is named after.</p>
-        <br>
-        <p>I'm going to keep this part a bit short because I already have a dedicated about me page, but I'm Kaimo, a random teenager hoping to capitalize my interests by spreading the joy to others.</p>
-        <br>
-        <p>If you're interested in what I do, check out my projects and contact page!</p>
-        
-        <!-- Go Back to Projects Button -->
-        <button class="nav-button" onclick="window.location.href='blog.html'" style="margin: 20px auto;">
-            Go back to blogs page
-        </button>
+    <!-- Business Card -->
+    <div class="business-card" style="margin: 4rem auto;">
+        <img src="assets/images/soloist.jpg" alt="Profile Picture" class="avatar" style="width: 150px; height: 150px;">
+        <div class="business-card-content">
+            <h3>Kaimo Zhao</h3>
+            <div class="title">Full-Stack Developer & Music Educator</div>
+            <div class="contact">
+                📧 kaimozhaomusic@gmail.com<br>
+                🔗 github.com/kaimoooowith4os<br>
+                🌐 kmzstudio.com
+            </div>
+        </div>
+        <div class="text-buttons" style="margin-top: 1rem;">
+            <button class="nav-button" onclick="window.location.href='about.html'">About Me</button>
+            <button class="nav-button" onclick="window.location.href='contact.html'">Contact</button>
+            <button class="nav-button" onclick="window.location.href='slashes.html'">Slashes</button>
+        </div>
+    </div>
 
-        <!-- Navigation Buttons -->
-        <div class="nav-projects">
-            <button onclick="window.location.href='tptgear.html'">
-                <span class="arrow">←</span> Previous Blog
-            </button>
-            <button onclick="window.location.href='usesblog.html'">
-                Next Blog <span class="arrow">→</span>
-            </button>
+    <div class="container" style="margin-top: 0.075rem;">
+        <div class="portfolio-option" onclick="window.location.href='musicportfolio.html'" data-search="music marching arts concerts festivals trumpet teaching conducting composing bands">
+            <img src="assets/images/fulltrumpet.jpg" alt="Music Portfolio Preview">
+            <h2>Musical Portfolio</h2>
+            <p>Marching Arts, Concerts, and Festivals</p>
+            <ul class="features">
+                <li>Marching Bands</li>
+                <li>Trumpet Consultation & Teaching</li>
+                <li>Conducting & Composing</li>
+            </ul>
+        </div>
+        <div class="portfolio-option" onclick="window.location.href='programmingportfolio.html'" data-search="programming javascript typescript html ruby rails full-stack development web design projects">
+            <img src="img/code.png" alt="Programming Portfolio Preview">
+            <h2>Programming Portfolio</h2>
+            <p>JavaScript, TypeScript, HTML, Ruby on Rails</p>
+            <ul class="features">
+                <li>Full-Stack Development</li>
+                <li>Web Design Consultation</li>
+                <li>Current Web Design Projects</li>
+            </ul>
         </div>
     </div>
 
@@ -589,7 +539,7 @@
             <a class="footer-button" href="https://tailwindcss.com/" target="_blank">
                 <img src="img/Tailwind_CSS_Logo.png" alt="Tailwind Logo"> Tailwind
             </a>
-            <a class="footer-button" href="https://www.php.net/" target="_blank">
+            <a class="footer-button" href="https://www.php.net//" target="_blank">
                 <img src="https://www.php.net/images/logos/php-logo.svg" alt="PHP Logo"> PHP
             </a>
         </div>
